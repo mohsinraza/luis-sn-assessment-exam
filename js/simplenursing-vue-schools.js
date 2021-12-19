@@ -24,7 +24,7 @@ var AppStudentGroups = new Vue({
            { key: 'name', sortable: true },
            { key: 'premium', sortable: true },
            { key: 'nclex', sortable: true, label: 'NCLEX'  },
-           { key: 'students_limit', sortable: true, label: 'Students Limit'  },
+           { key: 'studentsLimit', sortable: true, label: 'Students Limit'  },
          ],
          items: [],
          newGroupName:"",
@@ -32,6 +32,16 @@ var AppStudentGroups = new Vue({
          permissionTreeVideo: Object,
          selectedPermissionSlugs:[],
          selectedPermissionSlugsFromAdmin:[],
+
+         schoolName: '',
+         premium: '',
+         NCLEX: '',
+         studentsLimit: '',
+         schoolNameState: null,
+         premiumState: null,
+         nclexState: null,
+         studentsLimitState: null,
+         submittedNames: []
   },
   computed: {
 
@@ -226,6 +236,44 @@ var AppStudentGroups = new Vue({
 
             return restrictedTree;
     },
+
+    //Script for add new school
+    checkFormValidity() {
+        const valid = this.$refs.form.checkValidity()
+        this.schoolNameState = valid
+        this.premiumState = valid
+        this.nclexState = valid
+        this.studentsLimitState = valid
+        return valid
+    },
+    resetModal() {
+        this.schoolName = ''
+        this.premium = ''
+        this.NCLEX = ''
+        this.studentsLimit = ''
+        this.schoolNameState = null
+        this.premiumState = null
+        this.nclexState = null
+        this.studentsLimitState = null
+    },
+    handleOk(bvModalEvt) {
+        // Prevent modal from closing
+        bvModalEvt.preventDefault()
+        // Trigger submit handler
+        this.handleSubmit()
+    },
+    handleSubmit() {
+        // Exit when the form isn't valid
+        if (!this.checkFormValidity()) {
+        return
+        }
+        // Push the name to submitted names
+        this.submittedNames.push(this.schoolName)
+        // Hide the modal manually
+        this.$nextTick(() => {
+        this.$bvModal.hide('modal-create-school')
+        })
+    }
 
     } //methods
 });

@@ -14,8 +14,91 @@
     <main class="main--internal--schools">
       <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h1>Schools</h1>
+            <div class="col-6">
+                <h1>Schools</h1> 
+            </div>
+            <div class="col-6 mt-2">
+                <b-button v-b-modal.modal-create-school variant="primary" class="float-right" >Add New School</b-button>
+                <b-modal
+                    id="modal-create-school"
+                    ref="modal"
+                    title="Submit School Info"
+                    @show="resetModal"
+                    @hidden="resetModal"
+                    @ok="handleOk"
+                    >
+                    <form ref="form" @submit.stop.prevent="handleSubmit">
+                        <!-- School Name -->
+                        <b-form-group
+                        label="School Name"
+                        label-for="school-name-input"
+                        invalid-feedback="School Name is required"
+                        :state="schoolNameState"
+                        >
+                            <b-form-input
+                                id="school-name-input"
+                                v-model="schoolName"
+                                :state="schoolNameState"
+                                required
+                            ></b-form-input>
+                        </b-form-group>
+
+                        <!-- Premium -->
+                        <b-form-group
+                        label="Premium"
+                        label-for="premium-input"
+                        invalid-feedback="Premium is required"
+                        :state="premiumState"
+                        >
+                            <b-form-input
+                                id="premium-input"
+                                v-model="premium"
+                                :state="premiumState"
+                                required
+                            ></b-form-input>
+                        </b-form-group>
+
+                        <!-- NCLEX -->
+                        <b-form-group
+                        label="NCLEX"
+                        label-for="nclex-input"
+                        invalid-feedback="NCLEX is required"
+                        :state="nclexState"
+                        >
+                            <b-form-input
+                                id="nclex-input"
+                                v-model="NCLEX"
+                                :state="nclexState"
+                                required
+                            ></b-form-input>
+                        </b-form-group>
+
+                        <!-- Students Limit -->
+                        <b-form-group
+                        label="Students Limit"
+                        label-for="students-limit-input"
+                        invalid-feedback="Students Limit is required"
+                        :state="studentsLimitState"
+                        >
+                            <b-form-input
+                                id="students-limit-input"
+                                v-model="studentsLimit"
+                                :state="studentsLimitState"
+                                required
+                            ></b-form-input>
+                        </b-form-group>
+                    </form>
+                    <!-- Custom Fotter Buttons -->
+                    <template #modal-footer="{ ok, cancel }">
+                        <!-- Emulate built in modal footer ok and cancel button actions -->
+                        <b-button variant="danger" @click="cancel()">
+                            Cancel
+                        </b-button>
+                        <b-button variant="success" @click="ok()">
+                            Submit
+                        </b-button>
+                        </template>
+                </b-modal>
             </div>
         </div>
 
@@ -48,11 +131,11 @@
                     </template>
                 </b-table>
 
-                <div class="mt-3">
+                <!-- <div class="mt-3">
                     <b-button-group>
                         <b-button class="btn-primary" :disabled="selectedGroup.length==0" size="sm" @click="">Create New School</b-button>
                     </b-button-group>
-                </div>
+                </div> -->
 
 
             </div>
