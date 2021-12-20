@@ -48,7 +48,9 @@ var AppStudentGroups = new Vue({
   },
   mounted: function () {
       // this.pageSchoolStudentGroups();
-      this.getSchools();
+      var randomNum = Math.floor(Math.random() * 10) + 1;
+      this.createSchool('sn test mohsin ' + randomNum,1,1,100);
+    //   this.getSchools();
   },
   methods: {
       // pageSchoolStudentGroups() {
@@ -75,6 +77,19 @@ var AppStudentGroups = new Vue({
               }
           );
       },
+      createSchool(name,premium,nclex,students_limit) { 
+        this.schoolsApi.createSchool(name,premium,nclex,students_limit).then(
+            response => {
+                  console.log(response.data);
+                    if (response.data.status) {
+                        this.items = response.data.school_id;
+                        this.getSchools();
+                    } else {
+                        console.log(response.data.msg);
+                    }
+            }
+        );
+    },
       groupTableRowSelected(items) {
           if (items.length>0) {
               this.selectedGroup = items[0];

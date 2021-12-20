@@ -97,6 +97,9 @@ class SN_REST_SCHOOLS extends WP_REST_Controller {
           case 'get_schools':
               return $this->get_schools($params);
               break;
+          case 'create_school':
+              return $this->create_school($params);
+              break;
           case 'page_school_student_groups':
               return $this->page_school_student_groups($params);
               break;
@@ -354,6 +357,17 @@ class SN_REST_SCHOOLS extends WP_REST_Controller {
         return array(
             'status' => true,
             'schools' => $schools->get_all_schools()
+        );
+    }
+
+    /*
+     * Create a new school
+     */
+    private function create_school($params) {
+        $schools = new SN_Schools();
+        return array(
+            'status' => true,
+            'school_id' => $schools->create_new_school($params['name'],$params['premium'],$params['nclex'],$params['students_limit'])
         );
     }
 

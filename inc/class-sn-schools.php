@@ -161,4 +161,32 @@ class SN_Schools {
 
         return $sql_result;
     }
+
+
+    /* Create New School */
+    public function create_new_school($name, $premium, $nclex, $students_limit) {
+        global $wpdb;
+        $new_group_id=0;
+
+        $table = 'sn_schools';
+
+        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit,'start_date' => '2021-11-21','end_date'=>'2030-11-21');
+        $format = array('%s','%d','%d','%d','%s','%s');
+        $inserted = $wpdb->insert($table, $data, $format);
+        $school_id = $wpdb->insert_id;
+
+        if ($inserted==1) {
+            $sql_result = $wpdb->get_row(
+                $wpdb->prepare(
+                    "SELECT * FROM sn_schools WHERE school_id = %d ",
+                        $school_id
+                    )
+            );
+
+            if (!is_null($sql_result)) $new_school_id=$sql_result->school_id;
+        }
+
+
+        return $school_id;
+    }
 }

@@ -216,6 +216,29 @@ class SN_API_SCHOOLS {
         });
     }
 
+    createSchool(name,premium,nclex,students_limit) {
+        console.log("school name: "+name);
+        let headers = this.axiosHeaders;
+        let data = {
+            "action": "create_school",
+            "name": name,
+            "premium": premium,
+            "nclex": nclex,
+            "students_limit": students_limit
+        };
+ 
+        return new Promise(function(resolve, reject) {
+            axios.post('/wp-json/simplenursing/v1/school-action', data, headers)
+                .then(response => {
+                    resolve(response);
+                })
+                .catch(error => {
+                    console.log('getSchools ERROR:', error);
+                    reject(error);
+                });
+         });
+     }
+
     createSchoolGroup(groupName) {
        let headers = this.axiosHeaders;
        let data = {
