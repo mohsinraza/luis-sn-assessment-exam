@@ -82,6 +82,20 @@ var AppStudentGroups = new Vue({
             response => {
                   console.log(response.data);
                     if (response.data.status) {
+                        var school_id = response.data.school_id;
+                        // this.getSchools();
+                        this.updateSchool(school_id,'sn test mohsin updated',0,0,1000);
+                    } else {
+                        console.log(response.data.msg);
+                    }
+            }
+        );
+    },
+    updateSchool(school_id,name,premium,nclex,students_limit) { 
+        this.schoolsApi.updateSchool(school_id,name,premium,nclex,students_limit).then(
+            response => {
+                  console.log(response.data);
+                    if (response.data.status) {
                         this.items = response.data.school_id;
                         this.getSchools();
                     } else {
