@@ -34,13 +34,17 @@ var AppStudentGroups = new Vue({
          selectedPermissionSlugsFromAdmin:[],
 
          schoolName: '',
-         premium: '',
-         NCLEX: '',
+         premium: 0,
+         NCLEX: 0,
          studentsLimit: '',
          schoolNameState: null,
-         premiumState: null,
-         nclexState: null,
+         premiumState: 1,
+         nclexState: 1,
          studentsLimitState: null,
+         options: [
+          { text: 'True', value: 1 },
+          { text: 'False', value: 0 }
+         ],
          submittedNames: []
   },
   computed: {

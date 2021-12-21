@@ -44,7 +44,7 @@
                         </b-form-group>
 
                         <!-- Premium -->
-                        <b-form-group
+                        <!-- <b-form-group
                         label="Premium"
                         label-for="premium-input"
                         invalid-feedback="Premium is required"
@@ -56,10 +56,29 @@
                                 :state="premiumState"
                                 required
                             ></b-form-input>
+                        </b-form-group> -->
+                        <b-form-group 
+                        label="Premium"
+                        label-for="premium-input"
+                        invalid-feedback="Premium is required"
+                        :state="premiumState" 
+                        v-slot="{ ariaDescribedby }"
+                        >
+                            <b-form-radio-group
+                                id="premium-input"
+                                v-model="premium"
+                                :state="premiumState"
+                                required
+                                :options="options"
+                                :aria-describedby="ariaDescribedby"
+                                button-variant="outline-primary"
+                                name="radio-btn-outline"
+                                buttons
+                            ></b-form-radio-group>
                         </b-form-group>
 
                         <!-- NCLEX -->
-                        <b-form-group
+                        <!-- <b-form-group
                         label="NCLEX"
                         label-for="nclex-input"
                         invalid-feedback="NCLEX is required"
@@ -71,6 +90,26 @@
                                 :state="nclexState"
                                 required
                             ></b-form-input>
+                        </b-form-group> -->
+
+                        <b-form-group 
+                        label="NCLEX"
+                        label-for="nclex-input"
+                        invalid-feedback="NCLEX is required"
+                        :state="nclexState"
+                        v-slot="{ ariaDescribedby }"
+                        >
+                            <b-form-radio-group
+                            id="nclex-input"
+                                v-model="NCLEX"
+                                :state="nclexState"
+                                required
+                                :options="options"
+                                :aria-describedby="ariaDescribedby"
+                                button-variant="outline-primary"
+                                name="radio-btn-outline"
+                                buttons
+                            ></b-form-radio-group>
                         </b-form-group>
 
                         <!-- Students Limit -->

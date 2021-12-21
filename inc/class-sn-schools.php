@@ -169,7 +169,7 @@ class SN_Schools {
         $table = 'sn_schools';
         $school_id = 0;
 
-        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit,'start_date' => '2021-11-21','end_date'=>'2030-11-21');
+        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit);
         $format = array('%s','%d','%d','%d','%s','%s');
         $inserted = $wpdb->insert($table, $data, $format);
 
