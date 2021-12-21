@@ -24,7 +24,7 @@ var AppStudentGroups = new Vue({
            { key: 'name', sortable: true },
            { key: 'premium', sortable: true },
            { key: 'nclex', sortable: true, label: 'NCLEX'  },
-           { key: 'studentsLimit', sortable: true, label: 'Students Limit'  },
+           { key: 'students_limit', sortable: true, label: 'Students Limit'  },
          ],
          items: [],
          newGroupName:"",
