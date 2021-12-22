@@ -35,7 +35,7 @@ var AppStudentGroups = new Vue({
 
          schoolName: '',
          premium: 0,
-         NCLEX: 0,
+         nclex: 0,
          studentsLimit: '',
          schoolNameState: null,
          premiumState: 1,
@@ -48,13 +48,13 @@ var AppStudentGroups = new Vue({
          submittedNames: []
   },
   computed: {
-
+    
   },
   mounted: function () {
       // this.pageSchoolStudentGroups();
-      var randomNum = Math.floor(Math.random() * 10) + 1;
-      this.createSchool('sn test mohsin ' + randomNum,1,1,100);
-    //   this.getSchools();
+    //   var randomNum = Math.floor(Math.random() * 10) + 1;
+    //   this.createSchool('sn test mohsin ' + randomNum,1,1,100);
+      this.getSchools();
   },
   methods: {
       // pageSchoolStudentGroups() {
@@ -87,8 +87,8 @@ var AppStudentGroups = new Vue({
                   console.log(response.data);
                     if (response.data.status) {
                         var school_id = response.data.school_id;
-                        // this.getSchools();
-                        this.updateSchool(school_id,'sn test mohsin updated',0,0,1000);
+                        this.getSchools();
+                        // this.updateSchool(school_id,'sn test mohsin updated',0,0,1000);
                     } else {
                         console.log(response.data.msg);
                     }
@@ -281,8 +281,8 @@ var AppStudentGroups = new Vue({
     },
     resetModal() {
         this.schoolName = ''
-        this.premium = ''
-        this.NCLEX = ''
+        this.premium = 0
+        this.nclex = 0
         this.studentsLimit = ''
         this.schoolNameState = null
         this.premiumState = null
@@ -301,10 +301,15 @@ var AppStudentGroups = new Vue({
         return
         }
         // Push the name to submitted names
-        this.submittedNames.push(this.schoolName)
+        // this.submittedNames.push(this.schoolName)
+        console.log(this.schoolName)
+        console.log(this.premium)
+        console.log(this.nclex)
+        console.log(this.studentsLimit)
+        this.createSchool(this.schoolName,this.premium,this.nclex,this.studentsLimit)
         // Hide the modal manually
         this.$nextTick(() => {
-        this.$bvModal.hide('modal-create-school')
+            this.$bvModal.hide('modal-create-school')
         })
     }
 

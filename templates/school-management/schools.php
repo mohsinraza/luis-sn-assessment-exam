@@ -30,10 +30,14 @@
                     <form ref="form" @submit.stop.prevent="handleSubmit">
                         <!-- School Name -->
                         <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
                         label="School Name"
                         label-for="school-name-input"
                         invalid-feedback="School Name is required"
-                        :state="schoolNameState"
+                        :state="checkFormValidity"
                         >
                             <b-form-input
                                 id="school-name-input"
@@ -44,24 +48,15 @@
                         </b-form-group>
 
                         <!-- Premium -->
-                        <!-- <b-form-group
-                        label="Premium"
-                        label-for="premium-input"
-                        invalid-feedback="Premium is required"
-                        :state="premiumState"
-                        >
-                            <b-form-input
-                                id="premium-input"
-                                v-model="premium"
-                                :state="premiumState"
-                                required
-                            ></b-form-input>
-                        </b-form-group> -->
                         <b-form-group 
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
                         label="Premium"
                         label-for="premium-input"
                         invalid-feedback="Premium is required"
-                        :state="premiumState" 
+                        :state="checkFormValidity" 
                         v-slot="{ ariaDescribedby }"
                         >
                             <b-form-radio-group
@@ -78,30 +73,20 @@
                         </b-form-group>
 
                         <!-- NCLEX -->
-                        <!-- <b-form-group
-                        label="NCLEX"
-                        label-for="nclex-input"
-                        invalid-feedback="NCLEX is required"
-                        :state="nclexState"
-                        >
-                            <b-form-input
-                                id="nclex-input"
-                                v-model="NCLEX"
-                                :state="nclexState"
-                                required
-                            ></b-form-input>
-                        </b-form-group> -->
-
                         <b-form-group 
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
                         label="NCLEX"
                         label-for="nclex-input"
                         invalid-feedback="NCLEX is required"
-                        :state="nclexState"
+                        :state="checkFormValidity"
                         v-slot="{ ariaDescribedby }"
                         >
                             <b-form-radio-group
-                            id="nclex-input"
-                                v-model="NCLEX"
+                                id="nclex-input"
+                                v-model="nclex"
                                 :state="nclexState"
                                 required
                                 :options="options"
@@ -114,10 +99,14 @@
 
                         <!-- Students Limit -->
                         <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
                         label="Students Limit"
                         label-for="students-limit-input"
                         invalid-feedback="Students Limit is required"
-                        :state="studentsLimitState"
+                        :state="checkFormValidity"
                         >
                             <b-form-input
                                 id="students-limit-input"
