@@ -216,7 +216,7 @@ class SN_API_SCHOOLS {
         });
     }
 
-    createSchool(name,premium,nclex,students_limit) {
+    createSchool(name,premium,nclex,students_limit,start_date,end_date) {
         console.log("school name: "+name);
         let headers = this.axiosHeaders;
         let data = {
@@ -224,7 +224,9 @@ class SN_API_SCHOOLS {
             "name": name,
             "premium": premium,
             "nclex": nclex,
-            "students_limit": students_limit
+            "students_limit": students_limit,
+            "start_date": start_date,
+            "end_date": end_date
         };
  
         return new Promise(function(resolve, reject) {
@@ -239,7 +241,7 @@ class SN_API_SCHOOLS {
          });
      }
 
-     updateSchool(school_id,name,premium,nclex,students_limit) {
+     updateSchool(school_id,name,premium,nclex,students_limit,start_date,end_date) {
         console.log("school name: "+name);
         let headers = this.axiosHeaders;
         let data = {
@@ -248,7 +250,9 @@ class SN_API_SCHOOLS {
             "name": name,
             "premium": premium,
             "nclex": nclex,
-            "students_limit": students_limit
+            "students_limit": students_limit,
+            "start_date": start_date,
+            "end_date": end_date
         };
  
         return new Promise(function(resolve, reject) {

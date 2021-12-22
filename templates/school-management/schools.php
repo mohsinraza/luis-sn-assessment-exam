@@ -98,6 +98,70 @@
                             ></b-form-radio-group>
                         </b-form-group>
 
+                        <!-- Start Date -->
+                        <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
+                        label="Start Date"
+                        label-for="start-date-input"
+                        invalid-feedback="Start date is required"
+                        :state="checkFormValidity"
+                        >
+                            <b-input-group class="mb-3">
+                                <b-form-input
+                                    id="start-date-input"
+                                    v-model="startDate"
+                                    :state="startDateState"
+                                    type="text"
+                                    placeholder="YYYY-MM-DD"
+                                    autocomplete="off"
+                                ></b-form-input>
+                                <b-input-group-append>
+                                    <b-form-datepicker
+                                    v-model="startDate"
+                                    button-only
+                                    right
+                                    locale="en-US"
+                                    aria-controls="start-date-input"
+                                    ></b-form-datepicker>
+                                </b-input-group-append>
+                            </b-input-group>
+                        </b-form-group>
+
+                        <!-- End Date -->
+                        <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
+                        label="End Date"
+                        label-for="end-date-input"
+                        invalid-feedback="End date is required"
+                        :state="checkFormValidity"
+                        >
+                            <b-input-group class="mb-3">
+                                <b-form-input
+                                    id="end-date-input"
+                                    v-model="endDate"
+                                    :state="endDateState"
+                                    type="text"
+                                    placeholder="YYYY-MM-DD"
+                                    autocomplete="off"
+                                ></b-form-input>
+                                <b-input-group-append>
+                                    <b-form-datepicker
+                                    v-model="endDate"
+                                    button-only
+                                    right
+                                    locale="en-US"
+                                    aria-controls="end-date-input"
+                                    ></b-form-datepicker>
+                                </b-input-group-append>
+                            </b-input-group>
+                        </b-form-group>
+
                         <!-- Students Limit -->
                         <b-form-group
                         label-cols-sm="4"
@@ -109,7 +173,7 @@
                         invalid-feedback="Students Limit is required"
                         :state="checkFormValidity"
                         >
-                            <b-form-input
+                            <b-form-input type="number"
                                 id="students-limit-input"
                                 v-model="studentsLimit"
                                 :state="studentsLimitState"
@@ -239,6 +303,70 @@
                                           buttons
                                       ></b-form-radio-group>
                                   </b-form-group>
+
+                                  <!-- Start Date -->
+                        <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
+                        label="Start Date"
+                        label-for="start-date-input"
+                        invalid-feedback="Start date is required"
+                        :state="checkFormValidity"
+                        >
+                            <b-input-group class="mb-3">
+                                <b-form-input
+                                    id="start-date-input"
+                                    v-model="startDate"
+                                    :state="startDateState"
+                                    type="text"
+                                    placeholder="YYYY-MM-DD"
+                                    autocomplete="off"
+                                ></b-form-input>
+                                <b-input-group-append>
+                                    <b-form-datepicker
+                                    v-model="startDate"
+                                    button-only
+                                    right
+                                    locale="en-US"
+                                    aria-controls="start-date-input"
+                                    ></b-form-datepicker>
+                                </b-input-group-append>
+                            </b-input-group>
+                        </b-form-group>
+
+                        <!-- End Date -->
+                        <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
+                        label="End Date"
+                        label-for="end-date-input"
+                        invalid-feedback="End date is required"
+                        :state="checkFormValidity"
+                        >
+                            <b-input-group class="mb-3">
+                                <b-form-input
+                                    id="end-date-input"
+                                    v-model="endDate"
+                                    :state="endDateState"
+                                    type="text"
+                                    placeholder="YYYY-MM-DD"
+                                    autocomplete="off"
+                                ></b-form-input>
+                                <b-input-group-append>
+                                    <b-form-datepicker
+                                    v-model="endDate"
+                                    button-only
+                                    right
+                                    locale="en-US"
+                                    aria-controls="end-date-input"
+                                    ></b-form-datepicker>
+                                </b-input-group-append>
+                            </b-input-group>
+                        </b-form-group>
   
                                   <!-- Students Limit -->
                                   <b-form-group

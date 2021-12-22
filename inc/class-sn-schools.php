@@ -164,12 +164,12 @@ class SN_Schools {
 
 
     /* Create New School */
-    public function create_new_school($name, $premium, $nclex, $students_limit) {
+    public function create_new_school($name, $premium, $nclex, $students_limit,$start_date,$end_date) {
         global $wpdb;
         $table = 'sn_schools';
         $school_id = 0;
 
-        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit);
+        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit,'start_date' => $start_date,'end_date' => $end_date);
         $format = array('%s','%d','%d','%d','%s','%s');
         $inserted = $wpdb->insert($table, $data, $format);
 
@@ -191,12 +191,12 @@ class SN_Schools {
     }
 
     /* Update School By Id */
-    public function update_school($school_id,$name, $premium, $nclex, $students_limit) {
+    public function update_school($school_id,$name, $premium, $nclex, $students_limit,$start_date,$end_date) {
         global $wpdb;
 
         $table = 'sn_schools';
 
-        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit,'start_date' => '2021-11-21','end_date'=>'2030-11-21');
+        $data = array('name' => $name, 'premium' => $premium, 'nclex' => $nclex, 'students_limit' => $students_limit,'start_date' => $start_date,'end_date' => $end_date);
         $where= array('school_id' => $school_id);
         $format = array('%s','%d','%d','%d','%s','%s');
         $where_format = array('%d');

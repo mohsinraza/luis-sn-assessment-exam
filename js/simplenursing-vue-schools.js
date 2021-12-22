@@ -39,17 +39,20 @@ var AppStudentGroups = new Vue({
          premium: 0,
          nclex: 0,
          studentsLimit: '',
+         startDate: '',
+         endDate: '',
 
          schoolIdState: null,
          schoolNameState: null,
          premiumState: 1,
          nclexState: 1,
          studentsLimitState: null,
+         startDateState: null,
+         endDateState: null,
          options: [
           { text: 'True', value: 1 },
           { text: 'False', value: 0 }
-         ],
-         submittedNames: []
+         ]
   },
   computed: {
     
@@ -85,8 +88,8 @@ var AppStudentGroups = new Vue({
               }
           );
       },
-      createSchool(name,premium,nclex,students_limit) { 
-        this.schoolsApi.createSchool(name,premium,nclex,students_limit).then(
+      createSchool(name,premium,nclex,students_limit,start_date,end_date) { 
+        this.schoolsApi.createSchool(name,premium,nclex,students_limit,start_date,end_date).then(
             response => {
                 if (response.data.status) {
                         console.log("Added School #: "+response.data.school_id);
@@ -97,8 +100,8 @@ var AppStudentGroups = new Vue({
             }
         );
     },
-    updateSchool(school_id,name,premium,nclex,students_limit) { 
-        this.schoolsApi.updateSchool(school_id,name,premium,nclex,students_limit).then(
+    updateSchool(school_id,name,premium,nclex,students_limit,start_date,end_date) { 
+        this.schoolsApi.updateSchool(school_id,name,premium,nclex,students_limit,start_date,end_date).then(
             response => {
                   console.log(response.data);
                     if (response.data.status) {
@@ -283,6 +286,8 @@ var AppStudentGroups = new Vue({
         this.premiumState = valid
         this.nclexState = valid
         this.studentsLimitState = valid
+        this.startDateState = valid
+        this.endDateState = valid
         return valid
     },
     resetModal() {
@@ -291,12 +296,16 @@ var AppStudentGroups = new Vue({
         this.premium = 0
         this.nclex = 0
         this.studentsLimit = ''
+        this.startDate = ''
+        this.endDate = ''
 
         this.schoolIdState = null
         this.schoolNameState = null
         this.premiumState = null
         this.nclexState = null
         this.studentsLimitState = null
+        this.startDateState = null
+        this.endDateState = null
 
         this.clearSelected()
     },
@@ -328,13 +337,15 @@ var AppStudentGroups = new Vue({
         console.log(this.premium)
         console.log(this.nclex)
         console.log(this.studentsLimit)
+        console.log(this.startDate)
+        console.log(this.endDate)
 
         if(this.selectedGroup.school_id>0){
             console.log('updating....')
-            this.updateSchool(this.selectedGroup.school_id,this.schoolName,this.premium,this.nclex,this.studentsLimit)
+            this.updateSchool(this.selectedGroup.school_id,this.schoolName,this.premium,this.nclex,this.studentsLimit,this.startDate,this.endDate)
         }else{
             console.log('creating....')
-            this.createSchool(this.schoolName,this.premium,this.nclex,this.studentsLimit)
+            this.createSchool(this.schoolName,this.premium,this.nclex,this.studentsLimit,this.startDate,this.endDate)
         }
         // Hide the modal manually
         this.$nextTick(() => {

@@ -370,7 +370,7 @@ class SN_REST_SCHOOLS extends WP_REST_Controller {
         $schools = new SN_Schools();
         return array(
             'status' => true,
-            'school_id' => $schools->create_new_school($params['name'],$params['premium'],$params['nclex'],$params['students_limit'])
+            'school_id' => $schools->create_new_school($params['name'],$params['premium'],$params['nclex'],$params['students_limit'],$params['start_date'],$params['end_date'])
         );
     }
 
@@ -381,7 +381,7 @@ class SN_REST_SCHOOLS extends WP_REST_Controller {
         $schools = new SN_Schools();
         return array(
             'status' => true,
-            'updated' => $schools->update_school($params['school_id'],$params['name'],$params['premium'],$params['nclex'],$params['students_limit'])
+            'updated' => $schools->update_school($params['school_id'],$params['name'],$params['premium'],$params['nclex'],$params['students_limit'],$params['start_date'],$params['end_date'])
         );
     }
 
