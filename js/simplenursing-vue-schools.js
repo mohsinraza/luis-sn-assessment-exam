@@ -33,10 +33,13 @@ var AppStudentGroups = new Vue({
          selectedPermissionSlugs:[],
          selectedPermissionSlugsFromAdmin:[],
 
+         schoolId: '',
          schoolName: '',
          premium: 0,
          nclex: 0,
          studentsLimit: '',
+
+         schoolIdState: null,
          schoolNameState: null,
          premiumState: 1,
          nclexState: 1,
@@ -111,6 +114,8 @@ var AppStudentGroups = new Vue({
       groupTableRowSelected(items) {
           if (items.length>0) {
               this.selectedGroup = items[0];
+            //   console.log(this.selectedGroup.school_id);
+              this.handleEdit(this.selectedGroup)
           } else {
               this.selectedGroup=[];
               this.studentsList=[];
@@ -280,10 +285,13 @@ var AppStudentGroups = new Vue({
         return valid
     },
     resetModal() {
+        this.schoolId = ''
         this.schoolName = ''
         this.premium = 0
         this.nclex = 0
         this.studentsLimit = ''
+
+        this.schoolIdState = null
         this.schoolNameState = null
         this.premiumState = null
         this.nclexState = null
@@ -295,18 +303,36 @@ var AppStudentGroups = new Vue({
         // Trigger submit handler
         this.handleSubmit()
     },
+    handleEdit(item) {
+        console.log(item.name)
+        this.schoolName = item.name
+        this.premium = item.premium
+        this.nclex = item.nclex
+        this.studentsLimit = item.students_limit
+
+        this.schoolNameState = item.name
+        this.premiumState = item.premium
+        this.nclexState = item.nclex
+        this.studentsLimitState = item.students_limit
+    },
     handleSubmit() {
         // Exit when the form isn't valid
         if (!this.checkFormValidity()) {
         return
         }
-        // Push the name to submitted names
-        // this.submittedNames.push(this.schoolName)
+        console.log("schoolId: "+this.selectedGroup.school_id)
         console.log(this.schoolName)
         console.log(this.premium)
         console.log(this.nclex)
         console.log(this.studentsLimit)
-        this.createSchool(this.schoolName,this.premium,this.nclex,this.studentsLimit)
+
+        if(this.selectedGroup.school_id>0){
+            console.log('updating....')
+            this.updateSchool(this.selectedGroup.school_id,this.schoolName,this.premium,this.nclex,this.studentsLimit)
+        }else{
+            console.log('creating....')
+            this.createSchool(this.schoolName,this.premium,this.nclex,this.studentsLimit)
+        }
         // Hide the modal manually
         this.$nextTick(() => {
             this.$bvModal.hide('modal-create-school')
