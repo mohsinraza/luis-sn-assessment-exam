@@ -25,7 +25,8 @@ var AppStudentGroups = new Vue({
            { key: 'premium', sortable: true },
            { key: 'nclex', sortable: true, label: 'NCLEX'  },
            { key: 'students_limit', sortable: true, label: 'Students Limit'  },
-         ],
+           { key: 'actionsSelectedGroup', sortable: false, class:'selected', label: '' },
+        ],
          items: [],
          newGroupName:"",
          groupNameToModal:"",
@@ -87,11 +88,9 @@ var AppStudentGroups = new Vue({
       createSchool(name,premium,nclex,students_limit) { 
         this.schoolsApi.createSchool(name,premium,nclex,students_limit).then(
             response => {
-                  console.log(response.data);
-                    if (response.data.status) {
-                        var school_id = response.data.school_id;
-                        this.getSchools();
-                        // this.updateSchool(school_id,'sn test mohsin updated',0,0,1000);
+                if (response.data.status) {
+                        console.log("Added School #: "+response.data.school_id);
+                        this.getSchools()
                     } else {
                         console.log(response.data.msg);
                     }
@@ -103,8 +102,8 @@ var AppStudentGroups = new Vue({
             response => {
                   console.log(response.data);
                     if (response.data.status) {
-                        this.items = response.data.school_id;
-                        this.getSchools();
+                        console.log("Updated School: "+ response.data.updated)
+                        this.getSchools()
                     } else {
                         console.log(response.data.msg);
                     }
@@ -114,12 +113,14 @@ var AppStudentGroups = new Vue({
       groupTableRowSelected(items) {
           if (items.length>0) {
               this.selectedGroup = items[0];
-            //   console.log(this.selectedGroup.school_id);
               this.handleEdit(this.selectedGroup)
           } else {
               this.selectedGroup=[];
               this.studentsList=[];
           }
+    },
+    clearSelected() {
+        this.$refs.groupTable.clearSelected()
     },
     editGroupPermissionsOpenModal() {
         this.groupNameToModal = this.selectedGroup.name;
@@ -296,6 +297,8 @@ var AppStudentGroups = new Vue({
         this.premiumState = null
         this.nclexState = null
         this.studentsLimitState = null
+
+        this.clearSelected()
     },
     handleOk(bvModalEvt) {
         // Prevent modal from closing
