@@ -24,6 +24,8 @@ var AppStudentGroups = new Vue({
            { key: 'name', sortable: true },
            { key: 'premium', sortable: true },
            { key: 'nclex', sortable: true, label: 'NCLEX'  },
+           { key: 'start_date', sortable: true, label: 'Start Date'  },
+           { key: 'end_date', sortable: true, label: 'End Date'  },
            { key: 'students_limit', sortable: true, label: 'Students Limit'  },
            { key: 'actionsSelectedGroup', sortable: false, class:'selected', label: '' },
         ],
@@ -41,6 +43,7 @@ var AppStudentGroups = new Vue({
          studentsLimit: '',
          startDate: '',
          endDate: '',
+         schoolLogo: '',
 
          schoolIdState: null,
          schoolNameState: null,
@@ -49,6 +52,7 @@ var AppStudentGroups = new Vue({
          studentsLimitState: null,
          startDateState: null,
          endDateState: null,
+         schoolLogoState: null,
          options: [
           { text: 'True', value: 1 },
           { text: 'False', value: 0 }
@@ -298,6 +302,7 @@ var AppStudentGroups = new Vue({
         this.studentsLimit = ''
         this.startDate = ''
         this.endDate = ''
+        this.schoolLogo = ''
 
         this.schoolIdState = null
         this.schoolNameState = null
@@ -306,6 +311,7 @@ var AppStudentGroups = new Vue({
         this.studentsLimitState = null
         this.startDateState = null
         this.endDateState = null
+        this.schoolLogoState = null
 
         this.clearSelected()
     },
@@ -339,6 +345,7 @@ var AppStudentGroups = new Vue({
         console.log(this.studentsLimit)
         console.log(this.startDate)
         console.log(this.endDate)
+        console.log(this.schoolLogo)
 
         if(this.selectedGroup.school_id>0){
             console.log('updating....')

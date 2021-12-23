@@ -180,6 +180,24 @@
                                 required
                             ></b-form-input>
                         </b-form-group>
+
+                        <!-- School Logo -->
+                        <b-form-group
+                        label-cols-sm="4"
+                        label-cols-lg="3"
+                        content-cols-sm
+                        content-cols-lg="7"
+                        label="School Logo"
+                        label-for="school-logo-input"
+                        >
+                            <b-form-file
+                                v-model="schoolLogo"
+                                :state="Boolean(schoolLogoState)"
+                                placeholder="Choose a file or drop it here..."
+                                drop-placeholder="Drop file here..."
+                                accept="image/jpeg, image/png, image/gif"
+                                ></b-form-file>
+                        </b-form-group>
                     </form>
                     <!-- Custom Fotter Buttons -->
                     <template #modal-footer="{ ok, cancel }">
@@ -198,7 +216,7 @@
         <div class="row">
             <!-- cards_cta__item -->
             <div class="col-12">
-                <b-table
+                <b-table style="font-size: small"
                     hover
                     class="table-schools table-groups"
                     :items="items"
