@@ -191,6 +191,7 @@
                         label-for="school-logo-input"
                         >
                             <b-form-file
+                                id="school-logo-input"
                                 v-model="schoolLogo"
                                 :state="Boolean(schoolLogoState)"
                                 placeholder="Choose a file or drop it here..."
@@ -323,68 +324,68 @@
                                   </b-form-group>
 
                                   <!-- Start Date -->
-                        <b-form-group
-                        label-cols-sm="4"
-                        label-cols-lg="3"
-                        content-cols-sm
-                        content-cols-lg="7"
-                        label="Start Date"
-                        label-for="start-date-input"
-                        invalid-feedback="Start date is required"
-                        :state="checkFormValidity"
-                        >
-                            <b-input-group class="mb-3">
-                                <b-form-input
-                                    id="start-date-input"
-                                    v-model="startDate"
-                                    :state="startDateState"
-                                    type="text"
-                                    placeholder="YYYY-MM-DD"
-                                    autocomplete="off"
-                                ></b-form-input>
-                                <b-input-group-append>
-                                    <b-form-datepicker
-                                    v-model="startDate"
-                                    button-only
-                                    right
-                                    locale="en-US"
-                                    aria-controls="start-date-input"
-                                    ></b-form-datepicker>
-                                </b-input-group-append>
-                            </b-input-group>
-                        </b-form-group>
+                                <b-form-group
+                                label-cols-sm="4"
+                                label-cols-lg="3"
+                                content-cols-sm
+                                content-cols-lg="7"
+                                label="Start Date"
+                                label-for="start-date-input"
+                                invalid-feedback="Start date is required"
+                                :state="checkFormValidity"
+                                >
+                                    <b-input-group class="mb-3">
+                                        <b-form-input
+                                            id="start-date-input"
+                                            v-model="startDate"
+                                            :state="startDateState"
+                                            type="text"
+                                            placeholder="YYYY-MM-DD"
+                                            autocomplete="off"
+                                        ></b-form-input>
+                                        <b-input-group-append>
+                                            <b-form-datepicker
+                                            v-model="startDate"
+                                            button-only
+                                            right
+                                            locale="en-US"
+                                            aria-controls="start-date-input"
+                                            ></b-form-datepicker>
+                                        </b-input-group-append>
+                                    </b-input-group>
+                                </b-form-group>
 
-                        <!-- End Date -->
-                        <b-form-group
-                        label-cols-sm="4"
-                        label-cols-lg="3"
-                        content-cols-sm
-                        content-cols-lg="7"
-                        label="End Date"
-                        label-for="end-date-input"
-                        invalid-feedback="End date is required"
-                        :state="checkFormValidity"
-                        >
-                            <b-input-group class="mb-3">
-                                <b-form-input
-                                    id="end-date-input"
-                                    v-model="endDate"
-                                    :state="endDateState"
-                                    type="text"
-                                    placeholder="YYYY-MM-DD"
-                                    autocomplete="off"
-                                ></b-form-input>
-                                <b-input-group-append>
-                                    <b-form-datepicker
-                                    v-model="endDate"
-                                    button-only
-                                    right
-                                    locale="en-US"
-                                    aria-controls="end-date-input"
-                                    ></b-form-datepicker>
-                                </b-input-group-append>
-                            </b-input-group>
-                        </b-form-group>
+                                <!-- End Date -->
+                                <b-form-group
+                                label-cols-sm="4"
+                                label-cols-lg="3"
+                                content-cols-sm
+                                content-cols-lg="7"
+                                label="End Date"
+                                label-for="end-date-input"
+                                invalid-feedback="End date is required"
+                                :state="checkFormValidity"
+                                >
+                                    <b-input-group class="mb-3">
+                                        <b-form-input
+                                            id="end-date-input"
+                                            v-model="endDate"
+                                            :state="endDateState"
+                                            type="text"
+                                            placeholder="YYYY-MM-DD"
+                                            autocomplete="off"
+                                        ></b-form-input>
+                                        <b-input-group-append>
+                                            <b-form-datepicker
+                                            v-model="endDate"
+                                            button-only
+                                            right
+                                            locale="en-US"
+                                            aria-controls="end-date-input"
+                                            ></b-form-datepicker>
+                                        </b-input-group-append>
+                                    </b-input-group>
+                                </b-form-group>
   
                                   <!-- Students Limit -->
                                   <b-form-group
@@ -404,6 +405,25 @@
                                           required
                                       ></b-form-input>
                                   </b-form-group>
+
+                                  <!-- School Logo -->
+                                    <b-form-group
+                                    label-cols-sm="4"
+                                    label-cols-lg="3"
+                                    content-cols-sm
+                                    content-cols-lg="7"
+                                    label="School Logo"
+                                    label-for="school-logo-input"
+                                    >
+                                        <b-form-file
+                                            id="school-logo-input"
+                                            v-model="schoolLogo"
+                                            :state="Boolean(schoolLogoState)"
+                                            placeholder="Choose a file or drop it here..."
+                                            drop-placeholder="Drop file here..."
+                                            accept="image/jpeg, image/png, image/gif"
+                                            ></b-form-file>
+                                    </b-form-group>
                               </form>
                               <!-- Custom Fotter Buttons -->
                               <template #modal-footer="{ ok, cancel }">
