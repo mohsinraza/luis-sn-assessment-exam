@@ -327,11 +327,15 @@ var AppStudentGroups = new Vue({
         this.premium = item.premium
         this.nclex = item.nclex
         this.studentsLimit = item.students_limit
+        this.startDate = item.start_date
+        this.endDate = item.end_date
 
         this.schoolNameState = item.name
         this.premiumState = item.premium
         this.nclexState = item.nclex
         this.studentsLimitState = item.students_limit
+        this.startDateState = item.start_date
+        this.endDateState = item.end_date
     },
     handleSubmit() {
         // Exit when the form isn't valid
