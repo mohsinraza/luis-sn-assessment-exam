@@ -1,5 +1,5 @@
 <!-- question_form__nav -->
-<div class="question_form__nav">
+<div class="question_form__nav container">
   <a id="prev_bnt"
       v-on:click="previousQuestion()"
       v-if="questionIndex>0"
@@ -50,5 +50,17 @@
   >
     View Results
   </a>
+
+  <div class="container bottom_nav">
+        <div class="row row1">
+            <div class="col-6">
+              <b-button class="mr-2"variant="primary"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> End</b-button> 
+              <b-button class="mr-2"variant="primary"><i class="fa fa-pause-circle" aria-hidden="true"></i> Suspend</b-button>  
+            </div>
+            <div class="col-6">
+              <b-button variant="primary" class="float-right" >Next <i class="fa fa-arrow-right" aria-hidden="true"></i> </b-button> 
+            </div>
+        </div>
+      </div>
 </div>
 <!-- /question_form__nav -->
