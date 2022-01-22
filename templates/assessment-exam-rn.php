@@ -37,7 +37,7 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
 
 
     <!-- question_form -->
-    <div class=" container">
+    <div class="container-fluid">
 
 
         <?php get_template_part('template-parts/quiz-questions/question-top-navigation'); ?>

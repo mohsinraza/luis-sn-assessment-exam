@@ -1,7 +1,7 @@
 
 
 <!-- Top Navigation-->
-<div class="container top_nav">
+<div class="container-fluid top_nav">
         <div class="row row1">
             <div class="col-6">
                 <h5>NCLEX-RN TEST 1 TEST - Sean Rodrigues</h5> 

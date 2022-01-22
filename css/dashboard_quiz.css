@@ -92,7 +92,25 @@
 
 .top_nav, .bottom_nav{
 	color:white;
+	position: fixed;
+	z-index: 999;
   }
+
+
+.top_nav{
+	top: 32px;
+    height: 85px;
+    margin-bottom: 100px;
+    left: 0;
+    right: 0;
+}
+
+.bottom_nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
 
   .top_nav .row1, .bottom_nav{
 	background:#0261aa;
