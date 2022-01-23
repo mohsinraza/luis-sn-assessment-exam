@@ -291,6 +291,9 @@
 	}
 }
 
+#question_section{
+	margin-top: 100px;
+}
 .question_form__question {
 	/* background: linear-gradient(-90deg, #005E85, #003245); */
 	color: #000;
