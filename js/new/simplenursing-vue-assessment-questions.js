@@ -59,7 +59,8 @@ var App = new Vue({
       sortListOriginal: [
          ],
       sortListDestination: [
-         ]
+         ],
+      quizBreak: false
   },
   mounted: function () {
       this.quizId = getUrlParameter("quiz_id");
@@ -102,7 +103,7 @@ var App = new Vue({
           );
       },
       loadQuestion(questionIndex) {
-        console.log(this.examAnswers[questionIndex]);
+          console.log(this.examAnswers[questionIndex]);
         this.submitedAnswer=false;
         this.selectedAnswer=false;
         this.checkedAnswers=[];
@@ -552,6 +553,20 @@ var App = new Vue({
                         jQuery('.sn-spinner-modal').modal('hide');
                     }, 2000);
                 });
+    },
+    takeBreakQuiz() {
+        console.log('Quiz Break Starts!');
+        this.quizBreak = true;
+        jQuery('.blue_overlay_nav_answered').css("display","block");
+        // jQuery('.blue_overlay_nav_answered').removeClass('invisible');
+        showNotificationSuccess('Quiz break starts! please note, the clock won\'t stop');
+    },
+    resumeQuiz() {
+        console.log('Quiz Resumed!');
+        this.quizBreak = false;
+        jQuery('.blue_overlay_nav_answered').css("display","none");
+        // jQuery('div.blue_overlay_nav_answered').addClass('invisible');
+        showNotificationSuccess('Quiz Resumed!');
     },
     viewResultsForm() {
         this.clearForm();

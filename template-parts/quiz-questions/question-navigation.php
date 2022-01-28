@@ -51,34 +51,3 @@
     View Results
   </a>
 
-  <div class="bottom_nav">
-        <div class="row row1">
-            <div class="col-6">
-              <b-button 
-                class="mr-2 float-left"
-                variant="primary" 
-                href="#" onclick="return false;"
-                data-toggle="modal"
-                data-target="#closeQuizModal"
-              >
-                <i class="fa fa-sign-out-alt" aria-hidden="true"></i> End
-              </b-button> 
-              
-              <b-button class="mr-2 float-left"variant="primary"><i class="fa fa-pause-circle" aria-hidden="true"></i> Suspend</b-button>  
-            </div>
-
-            <div class="col-6">
-              <b-button 
-                variant="primary" 
-                class="float-right" 
-                v-if="questionIndex < examQuantity - 1"
-                v-on:click="nextQuestion()"
-                href="javascript:void(0)"
-              >
-                Next <i class="fa fa-arrow-right" aria-hidden="true"></i> 
-              </b-button> 
-            </div>
-        </div>
-      </div>
-</div>
-<!-- /question_form__nav -->

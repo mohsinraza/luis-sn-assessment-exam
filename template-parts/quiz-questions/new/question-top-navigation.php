@@ -1,3 +1,28 @@
+
+
+<!-- Top Navigation-->
+<div class="container-fluid top_nav">
+        <div class="row row1">
+            <div class="col-6">
+                <h5>NCLEX-RN TEST 1 TEST - Sean Rodrigues</h5> 
+            </div>
+            <div class="col-6">
+            <h6 class="float-right mt-n1">Time Remaining: <i class="fa fa-clock mr-1" aria-hidden="true"></i><span>{{showCountDown(this.examTimeLimit)}}</span></h6> 
+            </div>
+        </div>
+        <div class="row row2">
+            <div class="col-6">
+              <b-button class="mr-2"variant="primary"><i class="fa fa-edit" aria-hidden="true"></i> Notes</b-button> 
+              <b-button class="mr-2"variant="primary"><i class="fa fa-calculator" aria-hidden="true"></i> Calculator</b-button> 
+              <b-button class="mr-2"variant="primary"><i class="fa fa-comment-alt" aria-hidden="true"></i> Feedback</b-button> 
+            </div>
+            <div class="col-6">
+              <b-button variant="primary" class="float-right ml-2" ><i class="fa fa-cog" aria-hidden="true"></i></b-button>
+              <b-button variant="primary" class="float-right mr-2" ><i class="fa fa-question-circle" aria-hidden="true"></i></b-button>
+            </div>
+        </div>
+</div>
+
 <!-- side_nav -->
 <nav class="side_nav">
   <div v-if="timeLimitActive" class="side_nav__control side_nav__control--not_hittable side_nav__control--time_remaining">

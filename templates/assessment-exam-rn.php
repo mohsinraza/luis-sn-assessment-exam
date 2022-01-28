@@ -4,7 +4,7 @@
 // wp_enqueue_script('vue-cool-lightbox', get_stylesheet_directory_uri() . '/vendors/vue-cool-lightbox/vue-cool-lightbox.min.js', ['vue-js'], '2.3.3', true);
 wp_enqueue_style( 'simplenursing-dashboard-quiz-style', get_stylesheet_directory_uri() . '/css/dashboard_quiz.css', ['simplenursing-style'],  SN_ASSETS_VERSION);
 wp_enqueue_script('class-assessment', get_stylesheet_directory_uri() . '/js/class-assessment.js', ['vue-js'], SN_ASSETS_VERSION, true);
-wp_enqueue_script('simplenursing-vue-assessment-questions', get_stylesheet_directory_uri() . '/js/simplenursing-vue-assessment-questions.js', ['vue-js'], SN_ASSETS_VERSION, true);
+wp_enqueue_script('simplenursing-vue-assessment-questions', get_stylesheet_directory_uri() . '/js/new/simplenursing-vue-assessment-questions.js', ['vue-js'], SN_ASSETS_VERSION, true);
 wp_enqueue_script('quiz-questions', get_stylesheet_directory_uri() . '/js/quiz_questions.js', ['vue-js'], SN_ASSETS_VERSION, true);
 
 wp_enqueue_style( 'progress-circle-style', get_stylesheet_directory_uri() . '/vendors/progress-circle.min.css', ['simplenursing-style'],  '1.01');
@@ -34,13 +34,22 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
     <div class="menu d-xl-none d-block"></div>
     <div class="black_overlay"></div>
     <div class="black_overlay_nav_answered"></div>
+    <div class="blue_overlay_nav_answered">
+      <b-button 
+        class="align-middle"
+        variant="primary"
+        v-on:click="resumeQuiz()"
+        >
+          <i class="fa fa-pause-circle" aria-hidden="true"></i> Resume Quiz
+      </b-button> 
+    </div>
 
 
     <!-- question_form -->
     <div class="container-fluid">
 
 
-        <?php get_template_part('template-parts/quiz-questions/question-top-navigation'); ?>
+        <?php get_template_part('template-parts/quiz-questions/new/question-top-navigation'); ?>
 
       <div id="question_section" v-if="!viewResults">
           <!-- question_form__question -->
@@ -70,7 +79,7 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
 
       <?php get_template_part('template-parts/quiz-questions/question', 'feedback'); ?>
 
-      <?php get_template_part('template-parts/quiz-questions/question', 'navigation'); ?>
+      <?php get_template_part('template-parts/quiz-questions/new/question', 'navigation'); ?>
 
       
 
@@ -100,6 +109,52 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           <button v-on:click="discardQuiz()" type="button" data-dismiss="modal" class="btn btn-discard">Discard Quiz</button>
           <button v-if="!examFreeTrial" v-on:click="saveQuiz()" type="button" class="btn btn-confirm">Save Quiz</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <!-- pauseQuizModal -->
+    <div class="modal fade" id="pauseQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pause Quiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p v-if="!examFreeTrial">Do you want to take a break?</p>
+          <p>It's been X hours since you started the exam. You should take a small break (please note, the clock won't stop)</p>
+          <p v-if="!examFreeTrial">The break starts immediately after you complete the current question on screen and the screen will goes blue.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button v-on:click="takeBreakQuiz()" type="button" data-dismiss="modal" class="btn btn-confirm">Take Break</button>
+          <!-- <button v-if="!examFreeTrial" v-on:click="saveQuiz()" type="button" class="btn btn-confirm">Save Quiz</button> -->
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- resumeQuizModal -->
+    <div class="modal fade" id="resumeQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pause Quiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p v-if="!examFreeTrial">Do you want to resume quiz?</p>
+          <p>It's been X hours since you started the exam. </p>
+        </div>
+        <div class="modal-footer">
+          <button v-on:click="resumeQuiz()" type="button" data-dismiss="modal" class="btn btn-discard">Resume</button>
         </div>
       </div>
     </div>
