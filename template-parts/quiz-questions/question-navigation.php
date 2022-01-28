@@ -1,5 +1,5 @@
 <!-- question_form__nav -->
-<div class="question_form__nav container">
+<div class="question_form__nav">
   <a id="prev_bnt"
       v-on:click="previousQuestion()"
       v-if="questionIndex>0"
@@ -50,4 +50,5 @@
   >
     View Results
   </a>
-
+</div>
+<!-- /question_form__nav -->

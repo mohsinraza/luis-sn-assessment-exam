@@ -2,7 +2,7 @@
 
 // wp_enqueue_style( 'vue-cool-lightbox-style', get_stylesheet_directory_uri() . '/vendors/vue-cool-lightbox/vue-cool-lightbox.min.css', ['simplenursing-style'],  SN_ASSETS_VERSION);
 // wp_enqueue_script('vue-cool-lightbox', get_stylesheet_directory_uri() . '/vendors/vue-cool-lightbox/vue-cool-lightbox.min.js', ['vue-js'], '2.3.3', true);
-wp_enqueue_style( 'simplenursing-dashboard-quiz-style', get_stylesheet_directory_uri() . '/css/dashboard_quiz.css', ['simplenursing-style'],  SN_ASSETS_VERSION);
+wp_enqueue_style( 'simplenursing-dashboard-quiz-style', get_stylesheet_directory_uri() . '/css/new/dashboard_quiz.css', ['simplenursing-style'],  SN_ASSETS_VERSION);
 wp_enqueue_script('class-assessment', get_stylesheet_directory_uri() . '/js/class-assessment.js', ['vue-js'], SN_ASSETS_VERSION, true);
 wp_enqueue_script('simplenursing-vue-assessment-questions', get_stylesheet_directory_uri() . '/js/new/simplenursing-vue-assessment-questions.js', ['vue-js'], SN_ASSETS_VERSION, true);
 wp_enqueue_script('quiz-questions', get_stylesheet_directory_uri() . '/js/quiz_questions.js', ['vue-js'], SN_ASSETS_VERSION, true);
