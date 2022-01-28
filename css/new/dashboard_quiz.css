@@ -48,7 +48,7 @@
 	left: 40px;
 	width: 34px;
 	height: 34px;
-	background: url(../images/dashboard/icon-close.svg) center no-repeat;
+	background: url(../../images/dashboard/icon-close.svg) center no-repeat;
 	background-size: contain;
 	cursor: pointer;
 	transition: all 0.2s ease;
@@ -82,7 +82,7 @@
 	right: 24px;
 	width: 24px;
 	height: 24px;
-	background: url(../images/dashboard/icon-menu-mobile-off.svg) center no-repeat;
+	background: url(../../images/dashboard/icon-menu-mobile-off.svg) center no-repeat;
 	background-size: contain;
 	cursor: pointer;
 	transition: all 0.2s ease;
@@ -104,7 +104,7 @@
 }
 
 .menu--active {
-	background-image: url(../images/dashboard/icon-menu-mobile.svg);
+	background-image: url(../../images/dashboard/icon-menu-mobile.svg);
 	background-color: transparent;
 	box-shadow: none;
 }
@@ -243,19 +243,19 @@
 }
 
 .side_nav__control--time_remaining:before {
-	background-image: url(../images/dashboard/icon-quiz-time-remaining.svg);
+	background-image: url(../../images/dashboard/icon-quiz-time-remaining.svg);
 }
 
 .side_nav__control--question_index:before {
-	background-image: url(../images/dashboard/icon-quiz-question-index.svg);
+	background-image: url(../../images/dashboard/icon-quiz-question-index.svg);
 }
 
 .side_nav__control--mark_for_review:before {
-	background-image: url(../images/dashboard/icon-quiz-mark-for-review.svg);
+	background-image: url(../../images/dashboard/icon-quiz-mark-for-review.svg);
 }
 
 .side_nav__control--tutor_mode:before {
-	background-image: url(../images/dashboard/icon-menu-support.svg);
+	background-image: url(../../images/dashboard/icon-menu-support.svg);
 	background-size: auto;
 }
 
@@ -382,7 +382,7 @@
 	left: 16px;
 	height: 24px;
 	width: 24px;
-	background: url(../images/dashboard/form-radio-button.svg) no-repeat;
+	background: url(../../images/dashboard/form-radio-button.svg) no-repeat;
 	background-size: contain;
 	transition: all 0.2s ease;
 }
@@ -397,15 +397,15 @@
 }
 
 .question_form__choices__choice label input:checked~.checkmark {
-	background-image: url(../images/dashboard/form-radio-button-checked.svg);
+	background-image: url(../../images/dashboard/form-radio-button-checked.svg);
 }
 
 .question_form__choices__choice label input.incorrect~.checkmark {
-	background-image: url(../images/dashboard/icon-answered-incorrectly.svg);
+	background-image: url(../../images/dashboard/icon-answered-incorrectly.svg);
 }
 
 .question_form__choices__choice label input.correct~.checkmark {
-	background-image: url(../images/dashboard/icon-answer-correct.svg);
+	background-image: url(../../images/dashboard/icon-answer-correct.svg);
 }
 
 .question_form__choices__choice img.img-fluid.answer-image {
@@ -606,7 +606,7 @@
 
 .question_feedback {
 	position: relative;
-	background: #00709C url(../images/dashboard/bg-blue.jpg) repeat;
+	background: #00709C url(../../images/dashboard/bg-blue.jpg) repeat;
 	width: 100%;
 	padding: 136px 0 230px 0;
 	color: #fff;
@@ -692,7 +692,7 @@
 	vertical-align: middle;
 	width: 20px;
 	height: 20px;
-	background: url(../images/dashboard/icon-answer-correct.svg) center;
+	background: url(../../images/dashboard/icon-answer-correct.svg) center;
 	background-size: contain;
 }
 
@@ -708,7 +708,7 @@
 	vertical-align: middle;
 	width: 20px;
 	height: 20px;
-	background: url(../images/dashboard/icon-answer-incorrect.svg) center;
+	background: url(../../images/dashboard/icon-answer-incorrect.svg) center;
 	background-size: contain;
 }
 
@@ -812,7 +812,7 @@
 
 .question_index__item__info__item--marked:before {
 	background-size: 18px;
-	background-image: url(../images/dashboard/icon-quiz-mark-for-review.svg);
+	background-image: url(../../images/dashboard/icon-quiz-mark-for-review.svg);
 }
 
 .question_index__item__info__item--seen {
@@ -821,15 +821,15 @@
 }
 
 .question_index__item__info__item--seen:before {
-	background-image: url(../images/dashboard/icon-question-seen.svg);
+	background-image: url(../../images/dashboard/icon-question-seen.svg);
 }
 
 .question_index__item__info__item--answered_correctly:before {
-	background-image: url(../images/dashboard/icon-answer-correct.svg);
+	background-image: url(../../images/dashboard/icon-answer-correct.svg);
 }
 
 .question_index__item__info__item--answered_incorrectly:before {
-	background-image: url(../images/dashboard/icon-answer-incorrect.svg);
+	background-image: url(../../images/dashboard/icon-answer-incorrect.svg);
 }
 
 .quiz_result_header {
@@ -859,7 +859,7 @@
 
 .quiz_result_total {
 	position: relative;
-	background: #00709C url(../images/dashboard/bg-quiz-result-header.jpg) no-repeat;
+	background: #00709C url(../../images/dashboard/bg-quiz-result-header.jpg) no-repeat;
 	background-size: cover;
 	border-radius: 8px;
 	margin-bottom: 24px;
@@ -1089,15 +1089,15 @@
 }
 
 .quiz_result_total__links__item--redo_exam a:before {
-	background-image: url(../images/dashboard/icon-quiz-redo.svg);
+	background-image: url(../../images/dashboard/icon-quiz-redo.svg);
 }
 
 .quiz_result_total__links__item--share_result a:before {
-	background-image: url(../images/dashboard/icon-quiz-share.svg);
+	background-image: url(../../images/dashboard/icon-quiz-share.svg);
 }
 
 .quiz_result_total__links__item--delete_exam a:before {
-	background-image: url(../images/dashboard/icon-delete-white.svg);
+	background-image: url(../../images/dashboard/icon-delete-white.svg);
 }
 
 .quiz_result_partial {
@@ -1123,7 +1123,7 @@
 	height: 10px;
 	display: inline-block;
 	vertical-align: baseline;
-	background: url(../images/dashboard/icon-chevron-down-gray.svg) center no-repeat;
+	background: url(../../images/dashboard/icon-chevron-down-gray.svg) center no-repeat;
 	background-size: contain;
 	margin-left: 4px;
 	transition: all 0.4s ease;
@@ -1233,7 +1233,7 @@
 }
 
 .quiz_result_partial__chart_content__chart__average--above:before {
-	background-image: url(../images/dashboard/icon-quiz-result-above-average.svg);
+	background-image: url(../../images/dashboard/icon-quiz-result-above-average.svg);
 }
 
 .quiz_result_partial__chart_content__chart__average--below {
@@ -1241,7 +1241,7 @@
 }
 
 .quiz_result_partial__chart_content__chart__average--below:before {
-	background-image: url(../images/dashboard/icon-quiz-result-below-average.svg);
+	background-image: url(../../images/dashboard/icon-quiz-result-below-average.svg);
 }
 
 .quiz_result_partial__scores {
@@ -1361,7 +1361,7 @@ input.input-answer {
 }
 
 .modal_rationales__question {
-	background: #00709C url(../images/dashboard/bg-quiz-result-header.jpg) no-repeat;
+	background: #00709C url(../../images/dashboard/bg-quiz-result-header.jpg) no-repeat;
 	background-size: cover;
 	font-size: 16px;
 	font-weight: bold;
@@ -1541,7 +1541,7 @@ input.input-answer {
 }
 
 .quiz_result_insights__chart_content__header__average--above:before {
-	background-image: url(../images/dashboard/icon-quiz-result-above-average.svg);
+	background-image: url(../../images/dashboard/icon-quiz-result-above-average.svg);
 }
 
 .quiz_result_insights__chart_content__header__average--below {
@@ -1549,7 +1549,7 @@ input.input-answer {
 }
 
 .quiz_result_insights__chart_content__header__average--below:before {
-	background-image: url(../images/dashboard/icon-quiz-result-below-average.svg);
+	background-image: url(../../images/dashboard/icon-quiz-result-below-average.svg);
 }
 
 .quiz_result_insights__scores {
@@ -1778,7 +1778,7 @@ footer.footer_quiz_result {
 	height: 10px;
 	display: inline-block;
 	vertical-align: baseline;
-	background: url(../images/dashboard/icon-chevron-down-gray.svg) center no-repeat;
+	background: url(../../images/dashboard/icon-chevron-down-gray.svg) center no-repeat;
 	background-size: contain;
 	margin-left: 4px;
 	transition: all 0.4s ease;
