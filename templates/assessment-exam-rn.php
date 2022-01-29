@@ -23,25 +23,22 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
 
 <div id="app-quiz-questions">
 
-    <div
-        class="close_quiz"
-        data-placement="right"
-        href="#" onclick="return false;"
-        data-toggle="modal"
-        data-target="#closeQuizModal"
-        ></div>
-
     <div class="menu d-xl-none d-block"></div>
     <div class="black_overlay"></div>
     <div class="black_overlay_nav_answered"></div>
     <div class="blue_overlay_nav_answered">
-      <b-button 
-        class="align-middle"
-        variant="primary"
-        v-on:click="resumeQuiz()"
-        >
-          <i class="fa fa-pause-circle" aria-hidden="true"></i> Resume Quiz
-      </b-button> 
+      <div class="mx-auto text-center">
+        <p>It's been X hours since you started the exam. (please note, the clock won't stop)</p>
+        <b-button 
+          variant="primary" 
+          type="button" 
+          class="btn btn-confirm" 
+          v-on:click="resumeQuiz()"
+          href="javascript:void(0)"
+          >
+          <i class="fa fa-play" aria-hidden="true"></i> Resume Quiz
+        </b-button> 
+      </div>
     </div>
 
 
@@ -134,27 +131,6 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           <button v-on:click="takeBreakQuiz()" type="button" data-dismiss="modal" class="btn btn-confirm">Take Break</button>
           <!-- <button v-if="!examFreeTrial" v-on:click="saveQuiz()" type="button" class="btn btn-confirm">Save Quiz</button> -->
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <!-- resumeQuizModal -->
-    <div class="modal fade" id="resumeQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Pause Quiz</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p v-if="!examFreeTrial">Do you want to resume quiz?</p>
-          <p>It's been X hours since you started the exam. </p>
-        </div>
-        <div class="modal-footer">
-          <button v-on:click="resumeQuiz()" type="button" data-dismiss="modal" class="btn btn-discard">Resume</button>
         </div>
       </div>
     </div>
