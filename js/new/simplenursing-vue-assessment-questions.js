@@ -249,7 +249,7 @@ var App = new Vue({
             else this.finalQuestion = false;
 
         if(this.quizBreak)
-            this.takeBreakQuiz();
+            this.takeBreakQuiz('start');
 
           // don't show rationales
           if (!this.skipRationales) {
@@ -557,9 +557,9 @@ var App = new Vue({
                     }, 2000);
                 });
     },
-    takeBreakQuiz() {
+    takeBreakQuiz(request='') {
         console.log('Quiz Break Starts!');
-        if(!this.quizBreak){
+        if(!this.quizBreak || request!='start'){
             this.quizBreak = true;
             showNotificationSuccess('Quiz break will start as soon you answer current question.');
         }else{
