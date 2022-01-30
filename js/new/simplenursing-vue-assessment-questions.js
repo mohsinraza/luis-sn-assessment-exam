@@ -248,6 +248,9 @@ var App = new Vue({
           if (this.questionIndex >= this.examQuantity - 1) this.finalQuestion = true;
             else this.finalQuestion = false;
 
+        if(this.quizBreak)
+            this.takeBreakQuiz();
+
           // don't show rationales
           if (!this.skipRationales) {
               jQuery('.question_form').addClass('question_form--not_centered');
@@ -556,10 +559,13 @@ var App = new Vue({
     },
     takeBreakQuiz() {
         console.log('Quiz Break Starts!');
-        this.quizBreak = true;
-        jQuery('.blue_overlay_nav_answered').css("display","block");
-        // jQuery('.blue_overlay_nav_answered').removeClass('invisible');
-        showNotificationSuccess('Quiz break starts! please note, the clock won\'t stop');
+        if(!this.quizBreak){
+            this.quizBreak = true;
+            showNotificationSuccess('Quiz break will start as soon you answer current question.');
+        }else{
+            jQuery('.blue_overlay_nav_answered').css("display","block");
+            showNotificationSuccess('Quiz break starts! please note, the clock won\'t stop');
+        }
     },
     resumeQuiz() {
         console.log('Quiz Resumed!');

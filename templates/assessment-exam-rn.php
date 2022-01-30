@@ -28,7 +28,7 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
     <div class="black_overlay_nav_answered"></div>
     <div class="blue_overlay_nav_answered">
       <div class="mx-auto text-center">
-        <p>It's been X hours since you started the exam. (please note, the clock won't stop)</p>
+        <p>It's been {{showCountDown(this.examTimeLimitOriginal - this.examTimeLimit)}} minutes since you started the exam. (please note, the clock won't stop)</p>
         <b-button 
           variant="primary" 
           type="button" 
@@ -124,7 +124,7 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
         </div>
         <div class="modal-body">
           <p v-if="!examFreeTrial">Do you want to take a break?</p>
-          <p>It's been X hours since you started the exam. You should take a small break (please note, the clock won't stop)</p>
+          <p>It's been {{showCountDown(this.examTimeLimitOriginal - this.examTimeLimit)}} minutes since you started the exam. You should take a small break (please note, the clock won't stop)</p>
           <p v-if="!examFreeTrial">The break starts immediately after you complete the current question on screen and the screen will goes blue.</p>
         </div>
         <div class="modal-footer">

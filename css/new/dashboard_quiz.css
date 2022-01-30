@@ -469,11 +469,12 @@
 
 .question_form__nav .btn-primary {
 	color: #fff;
+	background: none;
 }
 
 .question_form__nav .btn-primary:hover {
 	transform: scale(1.02, 1.02);
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: none;
 }
 
 .question_form__nav .btn-highlighted {
