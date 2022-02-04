@@ -49,6 +49,13 @@ function differenceSeconds(dateStart, dateEnd) {
      return minutes + ':' + formattedSeconds;
  }
 
+ function formatSecondsToHHMMSS(duration){
+    //  if(duration>3600)
+        return new Date(duration * 1000).toISOString().substr(11, 8); 
+    // else
+        // return new Date(duration * 1000).toISOString().substr(14, 5);
+ }
+
 function loadVideo(idElement, videoUrl) {
     jQuery(idElement).show();
 

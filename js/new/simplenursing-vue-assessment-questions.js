@@ -468,15 +468,20 @@ var App = new Vue({
           }, 'slow');
       },
       countDownTimer() {
-          if(this.examTimeLimit > 0) {
+          
+          if (this.examTimeLimit > 0) {
               setTimeout(() => {
+                if (this.examTimeLimit == 17940 || this.examTimeLimit == 17880 || this.examTimeLimit == 10800 || this.examTimeLimit == 5400) {
+                    showNotificationSuccess('It\'s been ' + (this.showCountDown(this.examTimeLimitOriginal - this.examTimeLimit)) + ' hours since you started the exam. You should take a small break (please note, the clock won\'t stop)Quiz break will start as soon you answer current question.');
+                }
                   this.examTimeLimit -= 1;
                   this.countDownTimer();
               }, 1000);
           }
       },
       showCountDown(counter) {
-          return formatSecondsToTime(counter);
+        //   return formatSecondsToTime(counter);
+          return formatSecondsToHHMMSS(counter);
       },
       startTimer() {
           // let timePassedSeconds = this.examTimeLimitOriginal - this.examTimeLimit;
