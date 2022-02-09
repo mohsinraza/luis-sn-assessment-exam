@@ -2,7 +2,7 @@
 <div class="question_form__nav container">
     <div class="bottom_nav fixed-bottom">
         <div class="row row1">
-            <div class="col-6">
+            <div class="col-5">
               <b-button 
                 class="mr-2 float-left"
                 variant="primary" 
@@ -26,7 +26,10 @@
               </b-button>  
             </div>
 
-            <div class="col-6">
+            <div class="col-2">
+              <span class="d-block text-center">Questions: {{questionIndex + 1}}/{{examQuantity}}</span>
+            </div>
+            <div class="col-5">
               <!-- Next/Submit Button  -->
               <b-button v-if="selectedAnswer"
                 variant="primary" 

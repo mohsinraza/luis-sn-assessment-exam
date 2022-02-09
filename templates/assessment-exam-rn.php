@@ -93,7 +93,7 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Close Quiz</h5>
+          <h5 class="modal-title" id="exampleModalLabel">End Quiz</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -104,8 +104,31 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button v-on:click="discardQuiz()" type="button" data-dismiss="modal" class="btn btn-discard">Discard Quiz</button>
+          <button type="button" class="btn btn-discard" href="#" onclick="return false;" data-dismiss="modal" data-toggle="modal" data-target="#confirmDiscardQuizModal">Discard Quiz</button>
           <button v-if="!examFreeTrial" v-on:click="saveQuiz()" type="button" class="btn btn-confirm">Save Quiz</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <!-- confirmDiscardQuizModal -->
+    <div class="modal fade" id="confirmDiscardQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i> Discard Quiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p v-if="!examFreeTrial">The test will end and no further changes are possible.</p>
+          <p v-if="!examFreeTrial">Do you want to discard this quiz?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button v-on:click="discardQuiz()" type="button" data-dismiss="modal" class="btn btn-discard">Discard Quiz</button>
         </div>
       </div>
     </div>
