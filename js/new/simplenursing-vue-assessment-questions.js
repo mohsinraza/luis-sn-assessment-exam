@@ -432,6 +432,9 @@ var App = new Vue({
       nextQuestion() {
 
           if ((this.questionIndex+1)<this.examQuantity) {
+            if(this.quizBreak)
+                this.takeBreakQuiz('start');
+                
               this.questionIndex++;
               this.loadQuestion(this.questionIndex);
               this.clearForm();
