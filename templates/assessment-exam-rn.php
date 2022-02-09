@@ -136,6 +136,28 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
     </div>
     </div>
 
+
+    <!-- skipQuizModal -->
+    <div class="modal fade" id="skipQuizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Skip Question</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>You have not chosen any option. We will skip this question and mark it as wrong. Do you want to continue?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button v-on:click="skipAnswer(false)" type="button" data-dismiss="modal" class="btn btn-confirm">Skip</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
     <!-- questionIndexModal -->
     <div class="modal fade" id="questionIndexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">

@@ -27,10 +27,11 @@
             </div>
 
             <div class="col-6">
-              <b-button 
+              <!-- Next/Submit Button  -->
+              <b-button v-if="selectedAnswer"
                 variant="primary" 
                 class="float-right" 
-                v-bind:class="{ 'btn-primary': selectedAnswer, 'btn-disabled': !selectedAnswer }"
+                v-bind:class="{ 'd-none': questionIndex >= examQuantity - 1}"
                 v-on:click="submitAnswer()"
                 href="javascript:void(0)"
                 id="answer_btn"
@@ -38,13 +39,25 @@
                 Next <i class="fa fa-arrow-right" aria-hidden="true"></i> 
               </b-button> 
 
+              <!-- Skip Button with Model -->
+              <b-button v-else
+                id="skip_btn"
+                variant="primary" 
+                class="float-right" 
+                v-bind:class="{ 'd-none': questionIndex >= examQuantity - 1}"
+                v-on:click="skipAnswer(true)"
+                href="javascript:void(0)"
+                >
+                Skip <i class="fa fa-arrow-right" aria-hidden="true"></i> 
+              </b-button> 
+
+              <!-- View results after last question answered -->
               <b-button 
                 variant="primary" 
                 class="float-right" 
                 v-if="questionIndex >= examQuantity - 1"
                 v-on:click="viewResultsForm()"
                 href="javascript:void(0)"
-                style="display: none;"
                 id="next_btn"
                 >
                 View Results <i class="fa fa-poll" aria-hidden="true"></i> 

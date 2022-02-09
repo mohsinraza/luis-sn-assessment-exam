@@ -435,6 +435,9 @@ var App = new Vue({
               this.questionIndex++;
               this.loadQuestion(this.questionIndex);
               this.clearForm();
+          }else{
+            console.log(this.questionIndex + ' : ' + (this.examQuantity-1));
+            // this.questionIndex++;
           }
 
 
@@ -445,8 +448,14 @@ var App = new Vue({
 
           this.clearForm();
       },
-      skipAnswer() {
-          this.nextQuestion();
+      skipAnswer(showModal) {
+          if(showModal){
+            jQuery('#skipQuizModal').modal('show');
+          }else{
+            jQuery('#skipQuizModal').modal('hide');
+            this.nextQuestion();
+          }
+          
       },
       clearForm() {
           // Clear form
