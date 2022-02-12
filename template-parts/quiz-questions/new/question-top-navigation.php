@@ -12,8 +12,8 @@
         </div>
         <div class="row row2">
             <div class="col-6">
-              <b-button class="mr-2"variant="primary"><i class="fa fa-edit" aria-hidden="true"></i> Notes</b-button> 
-              <b-button class="mr-2"variant="primary"><i class="fa fa-calculator" aria-hidden="true"></i> Calculator</b-button> 
+              <b-button class="mr-2" variant="primary"><i class="fa fa-edit" aria-hidden="true"></i> Notes</b-button> 
+              <b-button class="mr-2" variant="primary" href="#" onclick="return false;" data-dismiss="modal" data-toggle="modal" data-target="#calculatorModal"><i class="fa fa-calculator" aria-hidden="true"></i> Calculator</b-button> 
               <b-button class="mr-2"variant="primary"><i class="fa fa-comment-alt" aria-hidden="true"></i> Feedback</b-button> 
             </div>
             <div class="col-6">

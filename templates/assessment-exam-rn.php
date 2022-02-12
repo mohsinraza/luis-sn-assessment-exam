@@ -17,6 +17,13 @@ wp_enqueue_script('sortable', 'https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sor
 wp_enqueue_script('sortable-vue', 'https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js', ['vue-js'], '2.20.0', true);
 
 
+wp_enqueue_style( 'calc-style', get_stylesheet_directory_uri() . '/css/new/calc_style.css');
+wp_enqueue_script('calculator-js', get_stylesheet_directory_uri() . '/js/new/calculator.js');
+
+// <link rel="stylesheet" type="text/css" href="assets/calc_style.css"/>
+// <script language="JavaScript" src="code.js" type="text/javascript"></script>
+// <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
 $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8';
 
 ?>
@@ -154,6 +161,65 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           <button v-on:click="takeBreakQuiz()" type="button" data-dismiss="modal" class="btn btn-confirm">Take Break</button>
           <!-- <button v-if="!examFreeTrial" v-on:click="saveQuiz()" type="button" class="btn btn-confirm">Save Quiz</button> -->
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- calculatorModal -->
+    <div class="modal fade" id="calculatorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Calculator</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="calculator">
+          <!-- <h1>Calculator</h1> -->
+          <p id="last_operation_history"></p>
+          <p id="box" class="box">0</p>
+          <table id="table">
+              <tr>
+                  <td><button onclick="calculate_percentage()">%</button></td>
+                  <td><button onclick="clear_entry()">CE</button></td>
+                  <td><button onclick="button_clear()">C</button></td>
+                  <td><button id="backspace_btn" onclick="backspace_remove()"></button></td>
+              </tr>
+              <tr>
+                  <td><button onclick="division_one()">¹∕ₓ</button></td>
+                  <td><button onclick="power_of()">𝑥²</button></td>
+                  <td><button onclick="square_root()">√𝑥</button></td>
+                  <td><button id="plusOp" value="+" class="operator" onclick="button_number('+')">+</button></td>
+              </tr>
+              <tr>
+                  <td><button onclick="button_number(7)">7</button></td>
+                  <td><button onclick="button_number(8)">8</button></td>
+                  <td><button onclick="button_number(9)">9</button></td>
+                  <td><button id="subOp" value="-" class="operator" onclick="button_number('-')">-</button></td>
+              </tr>
+              <tr>
+                  <td><button onclick="button_number(4)">4</button></td>
+                  <td><button onclick="button_number(5)">5</button></td>
+                  <td><button onclick="button_number(6)">6</button></td>
+                  <td><button id="multiOp" value="*" class="operator" onclick="button_number('*')">×</button></td>
+              </tr>
+              <tr>
+                  <td><button onclick="button_number(1)">1</button></td>
+                  <td><button onclick="button_number(2)">2</button></td>
+                  <td><button onclick="button_number(3)">3</button></td>            
+                  <td><button id="divOp" value="/" class="operator" onclick="button_number('/')">÷</button></td>
+              </tr>
+              <tr>
+                  <td><button onclick="plus_minus()">±</button></td>
+                  <td><button onclick="button_number(0)">0</button></td>
+                  <td><button id="dot" value="." onclick="button_number('.')">.</button></td>
+                  <td colspan="4"><button value="=" class="operator" id="equal_sign" onclick="button_number('=')">=</button></td>
+              </tr>
+              </table>
+          </div>
         </div>
       </div>
     </div>
