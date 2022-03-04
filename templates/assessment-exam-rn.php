@@ -33,6 +33,7 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
     <div class="menu d-xl-none d-block"></div>
     <div class="black_overlay"></div>
     <div class="black_overlay_nav_answered"></div>
+    <!-- Resume Quiz Overlay -->
     <div class="blue_overlay_nav_answered">
       <div class="mx-auto text-center">
         <p>It's been {{showCountDown(this.examTimeLimitOriginal - this.examTimeLimit)}} hours since you started the exam. (please note, the clock won't stop)</p>
@@ -44,6 +45,22 @@ $video_locked_url = 'https://d1pumg6d5kr18o.cloudfront.net/padlock/padlock.m3u8'
           href="javascript:void(0)"
           >
           <i class="fa fa-play" aria-hidden="true"></i> Resume Quiz
+        </b-button> 
+      </div>
+    </div>
+
+    <!-- Start Quiz Overlay -->
+    <div class="blue_overlay_nav_start_quiz">
+      <div class="mx-auto text-center">
+        <p>You will have 5 hours to complete this assesment exam. Please note, the clock won't stop once the exam starts.</p>
+        <b-button 
+          variant="primary" 
+          type="button" 
+          class="btn btn-confirm" 
+          v-on:click="startQuiz()"
+          href="javascript:void(0)"
+          >
+          <i class="fa fa-play" aria-hidden="true"></i> Start Assessment Exam
         </b-button> 
       </div>
     </div>

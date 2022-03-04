@@ -63,11 +63,11 @@ var App = new Vue({
       quizBreak: false
   },
   mounted: function () {
-      this.quizId = getUrlParameter("quiz_id");
-      this.quizResultsUrl = '/quiz-results/?quiz_id='+this.quizId;
-      this.localStorageId = 'assessment_exam_'+this.quizId;
-      showNotificationWarning("If you have to leave the exam without saving, please resume in the next 72 hours or the progress will be lost.");
-      this.getQuizData(this.quizId);
+    //   this.quizId = getUrlParameter("quiz_id");
+    //   this.quizResultsUrl = '/quiz-results/?quiz_id='+this.quizId;
+    //   this.localStorageId = 'assessment_exam_'+this.quizId;
+    //   showNotificationWarning("If you have to leave the exam without saving, please resume in the next 72 hours or the progress will be lost.");
+    //   this.getQuizData(this.quizId);
   },
   methods: {
       getQuizData(quizId) {
@@ -573,6 +573,24 @@ var App = new Vue({
                         jQuery('.sn-spinner-modal').modal('hide');
                     }, 2000);
                 });
+    },
+    startQuiz(request='') {
+        console.log('Quiz Starts!');
+        // if(!this.quizBreak || request!='start'){
+        //     this.quizBreak = true;
+        //     showNotificationSuccess('Quiz break will start as soon you answer current question.');
+        // }else{
+            //Hide start quiz button
+            jQuery('.blue_overlay_nav_start_quiz').css("display","none");
+            showNotificationSuccess('Quiz starts!');
+
+            //start quiz
+            this.quizId = getUrlParameter("quiz_id");
+            this.quizResultsUrl = '/quiz-results/?quiz_id='+this.quizId;
+            this.localStorageId = 'assessment_exam_'+this.quizId;
+            showNotificationWarning("If you have to leave the exam without saving, please resume in the next 72 hours or the progress will be lost.");
+            this.getQuizData(this.quizId);
+        // }
     },
     takeBreakQuiz(request='') {
         console.log('Quiz Break Starts!');
