@@ -17,8 +17,18 @@
     wp_enqueue_script('sn-vue-free-trial', get_stylesheet_directory_uri() . '/js/sn-vue-free-trial.js', ['vue-js'], SN_ASSETS_VERSION, true);
 
 
+    
 
  ?>
+
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LcAOAofAAAAAMMAcpHcp5uBcdhxSOH6l8HyPO1n"></script>
+<script>
+grecaptcha.enterprise.ready(function() {
+  grecaptcha.enterprise.execute('6LcAOAofAAAAAMMAcpHcp5uBcdhxSOH6l8HyPO1n', {action: 'login'}).then(function(token) {
+    document.getElementById('token').value = token;
+  });
+});
+</script>
 
 
 
@@ -273,6 +283,8 @@
                   <span v-if="fetching_data" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 
                 </button>
+
+                <input type="hidden" name="token" id="token">
 
 
 

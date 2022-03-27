@@ -865,3 +865,19 @@ function diwp_members_custom_post_type(){
 }
 
 add_action( 'init', 'diwp_members_custom_post_type' );
+
+
+/**
+ * Validate form with reCaptcha
+ * Return true or false
+ */
+function recaptcha_validate($token) {
+	if (!isset($token)) {
+	   return false;
+	}
+	$siteverify = 'https://www.google.com/recaptcha/api/siteverify';
+	$secret = '6LcAOAofAAAAAMMAcpHcp5uBcdhxSOH6l8HyPO1n';
+	$response = file_get_contents($siteverify . '?secret=' . $secret . '&response=' . $token);
+	$response = json_decode($response, true);
+	return $response['success'];
+}
