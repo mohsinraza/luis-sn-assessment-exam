@@ -1,0 +1,142 @@
+/* Hero Section Start */
+.hero_dashboard__gradient_bg{
+    padding-left: 120px;
+}
+
+.hero_preview_btns__btn {
+    background: none;
+    border: 2px solid #ED3967;
+    border-radius: 40px;
+    padding: 0px 40px;
+    line-height: 64px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.hero_preview_btns__btn:hover {
+    transform: scale(1.02, 1.02);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}
+
+.hero_preview_btns__btn::before{
+    background: none;
+}
+
+.hero_preview_btns__btn a{
+    padding: 0 10px 0 0; 
+}
+
+.hero_preview_btns__btn--trailer {
+    background: #ED3967;
+}
+
+.hero_preview_btns__btn--share a {
+    text-transform: none !important;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+/* Hero Section End */
+
+/* Card Video Section Start */
+.main--internal{
+    margin: 0 !important;
+}
+.card_video a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.card_video__thumbnail {
+    width: 55%;
+    float: left;
+    position: relative;
+}
+
+
+.card_video__thumbnail__info {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.56);
+    z-index: 10;
+    font-size: 14px;
+}
+
+.card_video__thumbnail__info ul li:first-child {
+    margin-left: 0;
+}
+
+.card_video__thumbnail__info ul li {
+    display: inline-block;
+    border-right: 1px solid rgba(255, 255, 255, 0.24);
+    padding-right: 8px;
+    margin-left: 8px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.card_video__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card_video__details {
+    width: calc(45% - 40px);
+    margin-left: 40px;
+    float: right;
+}
+
+.card_video__details__complete {
+    background: #378700;
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+    height: 28px;
+    border-radius: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: inline-block;
+}
+
+.card_video__details__day {
+    font-size: 48px;
+    margin-bottom: 24px;
+    margin-top: 40px;
+}
+
+
+.card_video__details__title {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 16px;
+}
+
+.card_video__details__summary {
+    color: #9E9E9E;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* Card Video Section End */
