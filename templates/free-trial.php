@@ -21,14 +21,22 @@
 
  ?>
 
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6LcAOAofAAAAAMMAcpHcp5uBcdhxSOH6l8HyPO1n"></script>
 <script>
-grecaptcha.enterprise.ready(function() {
-  grecaptcha.enterprise.execute('6LcAOAofAAAAAMMAcpHcp5uBcdhxSOH6l8HyPO1n', {action: 'login'}).then(function(token) {
-    document.getElementById('token').value = token;
-  });
-});
-</script>
+        var onSubmit = function(token) {
+          console.log('success!');
+        };
+
+        var onloadCallback = function() {
+          grecaptcha.render('submitCreatePassword', {
+            'sitekey' : '6LcAOAofAAAAAMMAcpHcp5uBcdhxSOH6l8HyPO1n',
+            'callback' : onSubmit
+          });
+        };
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                    async defer>
+                </script>
 
 
 
@@ -244,7 +252,7 @@ grecaptcha.enterprise.ready(function() {
 
                 </div>
 
-
+                
 
                 <button
 
@@ -257,6 +265,8 @@ grecaptcha.enterprise.ready(function() {
                     obj-ref="btn-step4"
 
                     class="btn btn-lg btn-primary"
+
+                    id="submitCreatePassword"
 
                     >
 
@@ -276,7 +286,9 @@ grecaptcha.enterprise.ready(function() {
 
                     v-on:click="stepSelectMembershipPlan" obj-ref="btn-step4"
 
-                    class="btn btn-lg btn-primary">
+                    class="btn btn-lg btn-primary"
+                    
+                    id="submitCreatePassword">
 
                   Save & Login
 
@@ -284,7 +296,7 @@ grecaptcha.enterprise.ready(function() {
 
                 </button>
 
-                <input type="hidden" name="token" id="token">
+                
 
 
 

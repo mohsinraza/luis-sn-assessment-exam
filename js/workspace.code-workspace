@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "simplenursing",
+			"path": "../.."
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {}
+}
