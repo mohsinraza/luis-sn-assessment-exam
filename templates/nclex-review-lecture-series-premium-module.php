@@ -1,509 +1,394 @@
 <?php
     wp_enqueue_script('simplenursing-vue-nclex-review-lecture-premium', get_stylesheet_directory_uri() . '/js/simplenursing-vue-nclex-review-lecture-premium.js', ['vue-js'], SN_ASSETS_VERSION, true);
-    wp_enqueue_style('nclex-review-lecture', get_stylesheet_directory_uri() . '/css/nclex-review-lecture.css', [], SN_ASSETS_VERSION);
+    wp_enqueue_style('nclex-review-lecture', get_stylesheet_directory_uri() . '/css/nclex-review-lecture-module.css', [], SN_ASSETS_VERSION);
 ?>
 
-<!-- hero_dashboard -->
-<div id="nclex-lecture" class="hero_dashboard hero_dashboard--lecture_series" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-header.jpg)">
-    <div class="hero_dashboard__gradient_bg">
         <?php get_template_part('template-parts/header/menu','links'); ?>
 
+    <!-- main -->
+    <main>
+
+      <!-- watch -->
+      <section class="watch">
+
+        <!-- watch__player -->
+        <div class="watch__player">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/sUFeuEON9h4" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <!-- /watch__player -->
+
+        <!-- description for mobile screens --->
+        <div class="watch__description d-md-none d-block text-left">
+          <div class="watch__description__title">
+            What is Schizophrenia? Therapeutic Communication Nursing
+          </div>
+          <div class="watch__description__summary">
+            Schizophrenia is a type of mental disorder that leads to a cluster of symptoms comprising of...
+            <br><strong>Read more</strong>
+          </div>
+        </div>
+
+        <!-- watch__playlist -->
+        <div class="watch__playlist">
+          <div class="watch__playlist__tabs">
+            <ul>
+              <li tab-ref="videos" class="watch__playlist__tabs__item watch__playlist__tabs__item--active">Lessons (6)</li
+              ><li tab-ref="notes" class="watch__playlist__tabs__item">My notes</li>
+            </ul>
+          </div>
+
+          <!-- watch__playlist__videos -->
+          <div content-ref="videos" class="watch_content watch__playlist__videos text-left">
+            <p>6 videos • 2 hr 30 min</p>
+
+            <ul>
+              <li class="watch__playlist__videos__item text-left">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-5.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                    <div class="watch__playlist__videos__item__info__watched">
+                      Watched
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-6.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                    <div class="watch__playlist__videos__item__info__watching_now">
+                      Watching now
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-7.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-5.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-6.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-7.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-5.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-6.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+              <li class="watch__playlist__videos__item">
+                <a href="#">
+                  <div class="watch__playlist__videos__item__thumbnail">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-7.jpg" alt="Lesson 1">
+                  </div>
+                  <div class="watch__playlist__videos__item__info">
+                    <div class="watch__playlist__videos__item__info__title">
+                      Lorem ipsum dolor sit amet amenit
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /watch__playlist__videos -->
+
+          <!-- watch__playlist__notes -->
+          <div content-ref="notes" class="watch_content watch__playlist__notes" style="display: none;">
+            <ul>
+              <li note-ref="1" class="watch__playlist__notes__item">
+                <div class="watch__playlist__notes__item__title">
+                  Lesson 1
+                  <span class="watch__playlist__notes__item__title__watching_now">
+                    Watching now
+                  </span>
+                </div>
+                <div class="watch__playlist__notes__item__note">
+
+                  <div class="watch__playlist__notes__item__note__textarea">
+                    <textarea name="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet leo eget mi convallis pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque laoreet sapien velit, at blandit dui ultrices a. Sed sed nibh eros. Mauris at iaculis eros. Ut orci libero, tincidunt in ante vitae, vulputate sollicitudin ipsum. Suspendisse potenti. Vestibulum eget enim sit amet leo iaculis pretium.</textarea>
+                    <button role="button" class="save btn btn-black mb-2 mr-2" href="#">Save</button
+                    ><button role="button" class="discard btn btn-outlined mb-2" href="#">Discard</button>
+                  </div>
+
+                  <div class="watch__playlist__notes__item__note__static">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet leo eget mi convallis pulvinar.
+                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                    Pellentesque laoreet sapien velit, at blandit dui ultrices a. Sed sed nibh eros. Mauris at iaculis eros.
+                    Ut orci libero, tincidunt in ante vitae, vulputate sollicitudin ipsum. Suspendisse potenti.
+                    Vestibulum eget enim sit amet leo iaculis pretium.
+                  </div>
+                </div>
+              </li>
+              <li note-ref="2" class="watch__playlist__notes__item">
+                <div class="watch__playlist__notes__item__title">
+                  Lesson 2
+                </div>
+                <div class="watch__playlist__notes__item__note">
+                  <div class="watch__playlist__notes__item__note__textarea">
+                    <textarea name="" placeholder="Write your notes..."></textarea>
+                    <button role="button" class="save btn btn-black mb-2 mr-2" href="#">Save</button
+                    ><button role="button" class="discard btn btn-outlined mb-2" href="#">Discard</button>
+                  </div>
+                  <div class="watch__playlist__notes__item__note__static watch__playlist__notes__item__note__static--empty">
+                    Write your notes...
+                  </div>
+                </div>
+              </li>
+              <li note-ref="3" class="watch__playlist__notes__item">
+                <div class="watch__playlist__notes__item__title">
+                  Lesson 3
+                </div>
+                <div class="watch__playlist__notes__item__note">
+                  <div class="watch__playlist__notes__item__note__textarea">
+                    <textarea name="" placeholder="Write your notes..."></textarea>
+                    <button role="button" class="save btn btn-black mb-2 mr-2" href="#">Save</button
+                    ><button role="button" class="discard btn btn-outlined mb-2" href="#">Discard</button>
+                  </div>
+                  <div class="watch__playlist__notes__item__note__static watch__playlist__notes__item__note__static--empty">
+                    Write your notes...
+                  </div>
+                </div>
+              </li>
+              <li note-ref="4" class="watch__playlist__notes__item">
+                <div class="watch__playlist__notes__item__title">
+                  Lesson 4
+                </div>
+                <div class="watch__playlist__notes__item__note">
+                  <div class="watch__playlist__notes__item__note__textarea">
+                    <textarea name="" placeholder="Write your notes..."></textarea>
+                    <button role="button" class="save btn btn-black mb-2 mr-2" href="#">Save</button
+                    ><button role="button" class="discard btn btn-outlined mb-2" href="#">Discard</button>
+                  </div>
+                  <div class="watch__playlist__notes__item__note__static watch__playlist__notes__item__note__static--empty">
+                    Write your notes...
+                  </div>
+                </div>
+              </li>
+              <li note-ref="5" class="watch__playlist__notes__item">
+                <div class="watch__playlist__notes__item__title">
+                  Lesson 5
+                </div>
+                <div class="watch__playlist__notes__item__note">
+                  <div class="watch__playlist__notes__item__note__textarea">
+                    <textarea name="" placeholder="Write your notes..."></textarea>
+                    <button role="button" class="save btn btn-black mb-2 mr-2" href="#">Save</button
+                    ><button role="button" class="discard btn btn-outlined mb-2" href="#">Discard</button>
+                  </div>
+                  <div class="watch__playlist__notes__item__note__static watch__playlist__notes__item__note__static--empty">
+                    Write your notes...
+                  </div>
+                </div>
+              </li>
+              <li note-ref="6" class="watch__playlist__notes__item">
+                <div class="watch__playlist__notes__item__title">
+                  Lesson 6
+                </div>
+                <div class="watch__playlist__notes__item__note">
+                  <div class="watch__playlist__notes__item__note__textarea">
+                    <textarea name="" placeholder="Write your notes..."></textarea>
+                    <button role="button" class="save btn btn-black mb-2 mr-2" href="#">Save</button
+                    ><button role="button" class="discard btn btn-outlined mb-2" href="#">Discard</button>
+                  </div>
+                  <div class="watch__playlist__notes__item__note__static watch__playlist__notes__item__note__static--empty">
+                    Write your notes...
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- /watch__playlist__notes -->
+
+        </div>
+        <!-- /watch__playlist -->
+
         <div class="clearfix"></div>
 
-        <h1 class="text-center" tabindex="0">NCLEX Review Lecture Series</h1>
-
-        <div class="hero_dashboard__post_h1 mb-4">
-            Nurse Mike's Masterclass on how to pass
-            <br class="d-md-block d-none">
-            the NCLEX. 23+ hours of contentAnatomy and Physiology
+        <!-- description for non-mobile screens --->
+        <div class="watch__description d-md-block d-none text-left">
+          <div class="watch__description__title">
+            What is Schizophrenia? Therapeutic Communication Nursing
+          </div>
+          <div class="watch__description__summary">
+            Schizophrenia is a type of mental disorder that leads to a cluster of symptoms comprising of delusions,
+            hallucinations, alogia, apathy and cognitive symptoms. Hallucinations and delusions are usually the positive symptoms,
+            while alogia and cognitive symptoms are negative.
+          </div>
         </div>
 
-        <div class="hero_preview_btns">
-            <div class="hero_preview_btns__btn hero_preview_btns__btn--trailer">
-                <a href="#">
-                    Trailer
-                </a>
-            </div>
-            <div class="hero_preview_btns__btn hero_preview_btns__btn--share">
-                <a href="#">
-                    Share
-                </a>
-            </div>
-        </div>
+      </section>
+      <!-- /watch -->
 
-        <a href="/nclex-pricing" role="button" class="btn btn-lg-extra btn-prominent-nclex">
-            Upgrade to unlock
-        </a>
 
-        <div class="mt-3">
-            Just $49/month for unlimited on-demand
-            <br class="d-md-block d-none">
-            access to all lessons
-        </div>
-    </div>
-</div>
-<!-- /hero_dashboard -->
+
+    </main>
+    <!-- /main -->
 
 
 
 
 
-<!-- main -->
-<main class="main--internal">
-    <div class="container">
+    <script>
+      jQuery(document).ready(function ($) {
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        function showMobileMenu () {
+          $('.aside_main').css('left', 0);
+          $('.aside_main__close').show();
+          $('.black_overlay').fadeIn(200);
+          $('.header_mobile').addClass('filter_blur');
+          $('.body_content__wrapper').addClass('filter_blur');
+        }
+
+        function hideMobileMenu () {
+          $('.aside_main').css('left', '-296px');
+          $('.aside_main__close').hide();
+          $('.black_overlay').fadeOut(200);
+          $('.header_mobile').removeClass('filter_blur');
+          $('.body_content__wrapper').removeClass('filter_blur');
+        }
+
+        $('.header_mobile__menu_btn').click(function() {
+          showMobileMenu();
+        });
+
+        $('.aside_main__close').click(function() {
+          hideMobileMenu();
+        });
+
+        $('.black_overlay').click(function() {
+          hideMobileMenu();
+        });
+
+        $('.loggedIn__menu__avatar').click(function () {
+          $('.loggedIn__menu ul').fadeToggle('fast');
+        });
+
+        $('.toggle_menu').click(function () {
+          $('#aside_menu').toggleClass('aside_main--compact');
+        });
 
 
-        <div class="row">
-            <div class="col-12">
-                <h3 tabindex="0"><strong>About this Review Lecture</strong></h3>
-            </div>
-        </div>
+        // TABS
+        var currentTab = 'videos';
 
-        <!-- Playlist -->
-        <section class="playlistInPage">
-            <div class="row">
-                <div class="col-md-8 col-12">
-                    <div class="playlistInPage__video" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-video1.jpg)">
-                        <div class="playlistInPage__video__play"></div>
-                    </div>
-                    <div class="playlistInPage__description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id auctor ligula. Donec ornare diam vel odio efficitur,
-                        eget facilisis dolor cursus. Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat. Sed nec purus
-                        posuere, pharetra dui eget, rhoncus turpis. Etiam at placerat nibh, a vulputate risus. Pellentesque pulvinar molestie
-                        rutrum. Ut vel posuere erat. Pellentesque vehicula ligula egestas neque.
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <!-- <div class="playlistInPage__list_heading">
-                    Browse lesson plan
-                </div> -->
+        $('.watch__playlist__tabs__item').click(function () {
+          $('.watch__playlist__tabs__item').removeClass('watch__playlist__tabs__item--active');
+          $(this).addClass('watch__playlist__tabs__item--active');
 
-                <ul class="playlistInPage__list">
-                    <li class="selected">Anatomy and Physiology</li>
-                    <li>Medication Calculation</li>
-                    <li>Pathophysiology</li>
-                    <li>Fundamentals</li>
-                    <li>Medical / Surgical</li>
-                    <li>Fundamentals</li>
-                    <li>Medication Calculation</li>
-                    <li>Pathophysiology</li>
-                    <li>Fundamentals</li>
-                    <li>Medical / Surgical</li>
-                    <li>Fundamentals</li>
-                    <li>Medication Calculation</li>
-                    <li>Pathophysiology</li>
-                    <li>Fundamentals</li>
-                    <li>Medical / Surgical</li>
-                    <li>Fundamentals</li>
-                    <li>Medication Calculation</li>
-                    <li>Fundamentals</li>
-                    <li>Medical / Surgical</li>
-                    <li>Fundamentals</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- /Playlist -->
+          currentTab = $(this).attr('tab-ref');
+          $('.watch_content').hide();
+          $("[content-ref='" + currentTab + "']").show();
+        });
 
 
+        // NOTES
+        var currentNote = null;
+        $('.watch__playlist__notes__item__note').click(function () {
+          currentNote = $(this).closest('li').attr('note-ref');
+          $('[note-ref="' + currentNote +'"] .watch__playlist__notes__item__note__static').hide();
+          $('[note-ref="' + currentNote +'"] .watch__playlist__notes__item__note__textarea').show();
+          $('[note-ref="' + currentNote +'"] .watch__playlist__notes__item__note__textarea textarea').focus();
+        });
 
-    <!-- Video grid -->
-    <section class="videoGrid">
-        <div class="row">
-            <div class="col-12">
-                <h3 tabindex="0"><strong>Browse lesson plan</strong></h3>
-            </div>
-        </div>
+        $('.save').click(function () {
+          closeNote();
+          currentNote = null;
+          return false
+        });
 
+        $('.discard').click(function () {
+          if(confirm("Are you sure you want to discard your note?")){
+            closeNote();
+            currentNote = null;
+          }
+          return false;
+        });
 
-        <div class="row">
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-1.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Donec ornare diam vel odio efficitur, eget
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Donec ornare diam vel odio efficitur, eget facilisis dolor cursus. Morbi varius iaculis facilisis.
-                            Cras finibus sit amet erat quis placerat. Sed nec.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-2.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis. Etiam.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-3.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat. Sed nec purus posuere
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id auctor ligula.
-                            Donec ornare diam vel odio efficitur, eget facilisis.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-4.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Lorem ipsum dolor sit amet cras id
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Etiam at placerat nibh, a vulputate risus. Pellentesque pulvinar molestie rutrum.
-                            Ut vel posuere erat. Pellentesque vehicula.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-4.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Lorem ipsum dolor sit amet cras id
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Etiam at placerat nibh, a vulputate risus. Pellentesque pulvinar molestie rutrum.
-                            Ut vel posuere erat. Pellentesque vehicula.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-2.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis. Etiam.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-1.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Donec ornare diam vel odio efficitur, eget
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Donec ornare diam vel odio efficitur, eget facilisis dolor cursus. Morbi varius iaculis facilisis.
-                            Cras finibus sit amet erat quis placerat. Sed nec.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-3.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat. Sed nec purus posuere
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id auctor ligula.
-                            Donec ornare diam vel odio efficitur, eget facilisis.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div id="video_crop" class="col-12">
-                <div class="videoGrid__crop">
-                    <div class="videoGrid__crop__label">
-                        View more classes
-                    </div>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-1.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Donec ornare diam vel odio efficitur, eget
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Donec ornare diam vel odio efficitur, eget facilisis dolor cursus. Morbi varius iaculis facilisis.
-                            Cras finibus sit amet erat quis placerat. Sed nec.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-2.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis. Etiam.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-3.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat. Sed nec purus posuere
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id auctor ligula.
-                            Donec ornare diam vel odio efficitur, eget facilisis.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-4.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Lorem ipsum dolor sit amet cras id
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Etiam at placerat nibh, a vulputate risus. Pellentesque pulvinar molestie rutrum.
-                            Ut vel posuere erat. Pellentesque vehicula.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-4.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Lorem ipsum dolor sit amet cras id
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Etiam at placerat nibh, a vulputate risus. Pellentesque pulvinar molestie rutrum.
-                            Ut vel posuere erat. Pellentesque vehicula.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-2.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis. Etiam.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-1.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Donec ornare diam vel odio efficitur, eget
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Donec ornare diam vel odio efficitur, eget facilisis dolor cursus. Morbi varius iaculis facilisis.
-                            Cras finibus sit amet erat quis placerat. Sed nec.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-3.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat. Sed nec purus posuere
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id auctor ligula.
-                            Donec ornare diam vel odio efficitur, eget facilisis.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-1.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Donec ornare diam vel odio efficitur, eget
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Donec ornare diam vel odio efficitur, eget facilisis dolor cursus. Morbi varius iaculis facilisis.
-                            Cras finibus sit amet erat quis placerat. Sed nec.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-2.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis. Etiam.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-3.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Cras finibus sit amet erat quis placerat. Sed nec purus posuere
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id auctor ligula.
-                            Donec ornare diam vel odio efficitur, eget facilisis.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="videoHidden col-md-3 col-6" style="display: none">
-                <div class="videoGrid__video">
-                    <a href="#">
-                        <div class="videoGrid__video__thumb" style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-4.jpg);">
-                            <div class="videoGrid__video__thumb__title">
-                                Lorem ipsum dolor sit amet cras id
-                            </div>
-                            <div class="videoGrid__video__thumb__gradient_bg"></div>
-                        </div>
-                        <div class="videoGrid__video__desc">
-                            Etiam at placerat nibh, a vulputate risus. Pellentesque pulvinar molestie rutrum.
-                            Ut vel posuere erat. Pellentesque vehicula.
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-    <!-- /Video grid -->
-
-
-    <div class="cta_huge_photo">
-        <div class="cta_huge_photo__body">
-            <div class="cta_huge_photo__body__heading">
-                Lorem ipsum dolor sit consectetur adipiscing elit
-            </div>
-            <div class="cta_huge_photo__body__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ipsum quam, luctus in felis id, tempus.
-            </div>
-            <a role="button" class="btn btn-lg btn-black" href="#">
-                Get started
-            </a>
-        </div>
-        <img class="cta_huge_photo__pic" src="<?php echo SN_ASSETS_URL ?>/images/dashboard/mike-bw-photo-1.jpg" alt="">
-        <div class="clearfix"></div>
-    </div>
+        function closeNote() {
+          $('[note-ref="' + currentNote +'"] .watch__playlist__notes__item__note__static').show();
+          $('[note-ref="' + currentNote +'"] .watch__playlist__notes__item__note__textarea').hide();
+        }
 
 
 
-
-</div>
-</main>
-<!-- /main -->
-
-<script>
-jQuery(document).ready(function ($) {
-   $('body').removeClass("dashboard_body_nclex_v2");
-   $('body').addClass("dashboard_body_nclex_v2_black");
-
-
-    $('.videoGrid__crop__label').click(function () {
-      $('#video_crop').hide();
-      $('.videoHidden').fadeIn();
-    });
- })
- </script>
+      });
+    </script>
