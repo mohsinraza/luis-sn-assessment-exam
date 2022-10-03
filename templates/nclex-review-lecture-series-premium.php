@@ -29,16 +29,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- <a href="/nclex-pricing" role="button" class="btn btn-lg-extra btn-prominent-nclex">
-            START LESSON 1 
-        </a>
-
-        <div class="mt-3">
-            Just $49/month for unlimited on-demand
-            <br class="d-md-block d-none">
-            access to all lessons
-        </div> -->
     </div>
 </div>
 <!-- /hero_dashboard -->
