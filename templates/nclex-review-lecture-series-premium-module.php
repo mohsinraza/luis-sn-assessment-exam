@@ -13,8 +13,12 @@
 
         <!-- watch__player -->
         <div class="watch__player">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/sUFeuEON9h4" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sUFeuEON9h4" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+          <?php 
+          $video_locked_url = "https://d1pumg6d5kr18o.cloudfront.net/new/fundamentals/1_nursing_process_2_adpie/part.m3u8";
+          echo do_shortcode('[fvplayer src="'.$video_locked_url.'"]') ; 
+          ?>
         </div>
         <!-- /watch__player -->
 
