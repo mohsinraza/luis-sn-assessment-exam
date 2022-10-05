@@ -14,7 +14,7 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
   public function register_routes() {
     $version = '1';
     $namespace = 'simplenursing/v' . $version;
-    $base = 'action_dev1';
+    $base = 'action_dev2';
     register_rest_route( $namespace, '/' . $base, array(
       array(
         'methods'             => WP_REST_Server::READABLE,
@@ -167,4 +167,5 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
         return $result;
     }
 
-} // Class
+
+} // Class

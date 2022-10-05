@@ -21,7 +21,7 @@ var AppFreeTrialQuestions = new Vue({
          };
 
          return new Promise(function(resolve, reject) {
-             axios.post('/wp-json/simplenursing/v1/action_dev1', data, headers)
+             axios.post('/wp-json/simplenursing/v1/action_dev2', data, headers)
                  .then(response => {
                      console.log(response);
                  })
