@@ -1,4 +1,11 @@
 <?php
+
+ /*
+    Todo: 
+      1. create Database tables
+      2. Fetch module dynamically
+      3. write restend point to save video performance data in database
+*/
 //Local REST endpoints and actions
 // DEVELOPER: Mohsin
 
@@ -49,6 +56,12 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
               break;
           case 'get_onboarding_page':
               return $this->get_onboarding_page($params);
+              break;
+          case 'get_all_modules':
+              return $this->get_all_modules();
+              break;
+          case 'get_all_videos':
+              return $this->get_all_videos($params);
               break;
           default:
               return array('status' => false, 'msg' => 'Unknown action.', 'error_code'=> 'no-action');
@@ -165,6 +178,34 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
         $result['status'] = true;
 
         return $result;
+    }
+
+
+    /**
+     * Get a list of all modules
+     * @return (array) Array of all modules with videos count
+     */
+    function get_all_modules() {
+      global $wpdb;
+      $sql_result = $wpdb->get_results(
+          "SELECT m.*,count(mv.video_id) as module_videos,SUM(mv.video_duration) as module_duration FROM sn_lecture_series_modules AS m Left JOIN sn_lecture_series_modules_videos AS mv ON mv.module_id = m.module_id GROUP BY m.module_id;"
+      );
+
+      return $sql_result;
+    }
+
+
+    /**
+     * Get a list of all videos
+     * @return (array) Array of all videos by module id
+     */
+    function get_all_videos($params) {
+      global $wpdb;
+      $sql_result = $wpdb->get_results(
+          "SELECT * FROM sn_lecture_series_modules_videos WHERE module_id = ".$params['module_id'].";"
+      );
+
+      return $sql_result;
     }
 
 
