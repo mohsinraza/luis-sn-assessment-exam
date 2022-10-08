@@ -42,12 +42,15 @@
         <div class="container">
         <div class="row">
             <div class="col-md-9 offset-md-1 col-12 offset-0">
-                <ul>
-                    <!-- <p>Modules: {{modules}}</p> -->
+                <!-- Testing -->
+                <!-- <ul>
                     <li v-for="(item, index) in modules">
-                        <p>{{toHHMMSS(item.module_duration)}}</p>
+                            <p>{{item.module_watched_duration}}</p>
+                            <p>{{item.module_duration}}</p>
+                            <p v-if="item.module_duration >= item.module_watched_duration">{{toHHMMSS(item.module_duration)}}</p>
                     </li>
-                </ul>
+                </ul> -->
+                <!-- /Testing -->
                 <!-- card_video -->
                 <div class="card_video" v-for="(item, index) in modules">
                     <a href="#">
@@ -61,7 +64,7 @@
                         <img :src="'<?php echo SN_ASSETS_URL ?>'+item.module_thumbnail" alt="">
                         </div>
                         <div class="card_video__details">
-                        <div class="card_video__details__complete">Complete</div>
+                        <div class="card_video__details__complete" v-if="item.module_duration===item.module_watched_duration">Complete</div>
                         <div class="card_video__details__day">{{item.module_day}}</div>
                         <div class="card_video__details__title">{{item.module_title}}</div>
                         <div class="card_video__details__summary">

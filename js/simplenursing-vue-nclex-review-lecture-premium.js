@@ -14,7 +14,8 @@ var AppFreeTrialQuestions = new Vue({
             "module_summary": "Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.                         Sed nec purus posuere, pharetra dui eget, rhoncus turpis.                         Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.",
             "module_thumbnail": "/images/dashboard/_placeholder-lecture-series-5.jpg",
             "module_videos": "2",
-            "module_duration": "171040"
+            "module_duration": "171040",
+            "module_watched_duration": "171040"
         },
         {
             "module_id": "2",
@@ -23,7 +24,8 @@ var AppFreeTrialQuestions = new Vue({
             "module_summary": "Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.                         Sed nec purus posuere, pharetra dui eget, rhoncus turpis.                         Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.",
             "module_thumbnail": "/images/dashboard/_placeholder-lecture-series-6.jpg",
             "module_videos": "1",
-            "module_duration": "80920"
+            "module_duration": "80920",
+            "module_watched_duration": null
         }
     ]
   },
@@ -62,6 +64,7 @@ var AppFreeTrialQuestions = new Vue({
             axios.post('/wp-json/simplenursing/v1/action_dev2', data, headers)
                 .then(response => {
                     this.modules = response.data;
+                    console.log("Axios response");
                     console.log(this.modules);
                 })
                 .catch(error => {

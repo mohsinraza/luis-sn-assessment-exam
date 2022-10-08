@@ -188,7 +188,7 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
     function get_all_modules() {
       global $wpdb;
       $sql_result = $wpdb->get_results(
-          "SELECT m.*,count(mv.video_id) as module_videos,SUM(mv.video_duration) as module_duration FROM sn_lecture_series_modules AS m Left JOIN sn_lecture_series_modules_videos AS mv ON mv.module_id = m.module_id GROUP BY m.module_id;"
+          "SELECT m.*,count(mv.video_id) as module_videos,SUM(mv.video_duration) as module_duration, SUM(mw.seconds_watched) AS module_watched_duration FROM sn_lecture_series_modules AS m Left JOIN sn_lecture_series_modules_videos AS mv ON mv.module_id = m.module_id Left JOIN sn_lecture_series_module_video_watched AS mw ON mv.video_id = mw.video_id GROUP BY m.module_id;"
       );
 
       return $sql_result;
