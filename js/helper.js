@@ -51,10 +51,22 @@ function differenceSeconds(dateStart, dateEnd) {
 
  function formatSecondsToHHMMSS(duration){
     //  if(duration>3600)
-        return new Date(duration * 1000).toISOString().substr(11, 8); 
+        return new Date(duration * 1000).toISOString().substr(11, 8);
     // else
         // return new Date(duration * 1000).toISOString().substr(14, 5);
  }
+
+ var toHHMMSS = (secs) => {
+    var sec_num = parseInt(secs, 10)
+    var hours   = Math.floor(sec_num / 3600)
+    var minutes = Math.floor(sec_num / 60) % 60
+    var seconds = sec_num % 60
+
+    return [hours,minutes,seconds]
+        .map(v => v < 10 ? "0" + v : v)
+        .filter((v,i) => v !== "00" || i > 0)
+        .join(":")
+}
 
 function loadVideo(idElement, videoUrl) {
     jQuery(idElement).show();
@@ -67,10 +79,12 @@ function loadVideo(idElement, videoUrl) {
 
 
 function stopVideo(idElement) {
-    jQuery(idElement).hide();
-    jQuery(idElement + " .flowplayer")
-      .data('flowplayer')
-      .stop();
+    setTimeout(function(){
+        jQuery(idElement).hide();
+        jQuery(idElement + " .flowplayer")
+          .data('flowplayer')
+          .stop();
+    }, 1000);
 
 }
 
