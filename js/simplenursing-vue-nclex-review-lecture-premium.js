@@ -6,31 +6,10 @@ var AppFreeTrialQuestions = new Vue({
       fetching_data: false,
       errorMessage:'',
       successMessage:'',
-      modules:[
-        {
-            "module_id": "1",
-            "module_day": "Day 1",
-            "module_title": "Cras finibus sit amet erat quis",
-            "module_summary": "Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.                         Sed nec purus posuere, pharetra dui eget, rhoncus turpis.                         Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.",
-            "module_thumbnail": "/images/dashboard/_placeholder-lecture-series-5.jpg",
-            "module_videos": "2",
-            "module_duration": "171040",
-            "module_watched_duration": "171040"
-        },
-        {
-            "module_id": "2",
-            "module_day": "Day 2",
-            "module_title": "Cras finibus sit amet erat quis",
-            "module_summary": "Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.                         Sed nec purus posuere, pharetra dui eget, rhoncus turpis.                         Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.",
-            "module_thumbnail": "/images/dashboard/_placeholder-lecture-series-6.jpg",
-            "module_videos": "1",
-            "module_duration": "80920",
-            "module_watched_duration": null
-        }
-    ]
+      modules:[]
   },
   computed: {
-        
+
     }, //computed
   mounted: function () {
     //   this.getOnboardingPage("test");
@@ -60,12 +39,13 @@ var AppFreeTrialQuestions = new Vue({
             "action": "get_all_modules"
         };
 
+        let thisParent = this;
         return new Promise(function(resolve, reject) {
             axios.post('/wp-json/simplenursing/v1/action_dev2', data, headers)
                 .then(response => {
-                    this.modules = response.data;
+                    thisParent.modules = response.data;
                     console.log("Axios response");
-                    console.log(this.modules);
+                    console.log(thisParent.modules);
                 })
                 .catch(error => {
                     console.log('getAllModules ERROR:', error);

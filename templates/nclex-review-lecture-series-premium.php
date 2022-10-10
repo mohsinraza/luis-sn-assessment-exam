@@ -40,180 +40,45 @@
     <!-- main -->
     <main class="main--internal">
         <div class="container">
-        <div class="row">
-            <div class="col-md-9 offset-md-1 col-12 offset-0">
-                <!-- Testing -->
-                <!-- <ul>
-                    <li v-for="(item, index) in modules">
-                            <p>{{item.module_watched_duration}}</p>
-                            <p>{{item.module_duration}}</p>
-                            <p v-if="item.module_duration >= item.module_watched_duration">{{toHHMMSS(item.module_duration)}}</p>
-                    </li>
-                </ul> -->
-                <!-- /Testing -->
-                <!-- card_video -->
-                <div class="card_video" v-for="(item, index) in modules">
-                    <a href="#">
-                        <div class="card_video__thumbnail">
-                        <div class="card_video__thumbnail__info">
-                            <ul>
-                            <li>{{toHHMMSS(item.module_duration)}}</li>
-                            <li><strong>{{item.module_videos}} videos</strong></li>
-                            </ul>
-                        </div>
-                        <img :src="'<?php echo SN_ASSETS_URL ?>'+item.module_thumbnail" alt="">
-                        </div>
-                        <div class="card_video__details">
-                        <div class="card_video__details__complete" v-if="item.module_duration===item.module_watched_duration">Complete</div>
-                        <div class="card_video__details__day">{{item.module_day}}</div>
-                        <div class="card_video__details__title">{{item.module_title}}</div>
-                        <div class="card_video__details__summary">
-                            {{item.module_summary}}
-                        </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
+            <div class="row">
+                <div class="col-md-9 offset-md-1 col-12 offset-0">
+                    <!-- {{modules}} -->
+                    <!-- Testing -->
+                    <!-- <ul>
+                        <li v-for="(item, index) in modules">
+                                <p>{{item.module_watched_duration}}</p>
+                                <p>{{item.module_duration}}</p>
+                                <p v-if="item.module_duration >= item.module_watched_duration">{{toHHMM(item.module_duration)}}</p>
+                        </li>
+                    </ul> -->
+                    <!-- /Testing -->
+                    <!-- card_video -->
+                    <div class="card_video" v-for="(item, index) in modules">
+                        <a :href="'<?php echo "https://dev2members.simplenursing.com/nclex-review-lecture-series-module?mid="?>'+item.module_id">
+                            <div class="card_video__thumbnail">
+                            <div class="card_video__thumbnail__info">
+                                <ul>
+                                <li>{{toHHMM(item.module_duration)}}</li>
+                                <li><strong>{{item.module_videos}} videos</strong></li>
+                                </ul>
+                            </div>
+                            <img :src="'<?php echo SN_ASSETS_URL ?>'+item.module_thumbnail" alt="">
+                            </div>
+                            <div class="card_video__details">
+                            <div class="card_video__details__complete" v-if="item.module_duration===item.module_watched_duration">Complete</div>
+                            <div class="card_video__details__day">{{item.module_day}}</div>
+                            <div class="card_video__details__title">{{item.module_title}}</div>
+                            <div class="card_video__details__summary">
+                                {{item.module_summary}}
+                            </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <!-- /card_video -->
                 </div>
-                <!-- /card_video -->
-
-                <!-- card_video -->
-                <div class="card_video">
-                    <a href="#">
-                        <div class="card_video__thumbnail">
-                        <div class="card_video__thumbnail__info">
-                            <ul>
-                            <li>16:25</li>
-                            <li><strong>5 videos</strong></li>
-                            </ul>
-                        </div>
-                        <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-6.jpg" alt="">
-                        </div>
-                        <div class="card_video__details">
-                        <!-- <div class="card_video__details__complete">Complete</div> -->
-                        <div class="card_video__details__day">Day 2</div>
-                        <div class="card_video__details__title">Cras finibus sit amet erat quis</div>
-                        <div class="card_video__details__summary">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis.
-                            Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.
-                        </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </div>
-                <!-- /card_video -->
-
-                <!-- card_video -->
-                <div class="card_video">
-                    <a href="#">
-                        <div class="card_video__thumbnail">
-                        <div class="card_video__thumbnail__info">
-                            <ul>
-                            <li>16:25</li>
-                            <li><strong>5 videos</strong></li>
-                            </ul>
-                        </div>
-                        <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-7.jpg" alt="">
-                        </div>
-                        <div class="card_video__details">
-                        <!-- <div class="card_video__details__complete">Complete</div> -->
-                        <div class="card_video__details__day">Day 3</div>
-                        <div class="card_video__details__title">Cras finibus sit amet erat quis</div>
-                        <div class="card_video__details__summary">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis.
-                            Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.
-                        </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </div>
-                <!-- /card_video -->
-
-
-                <!-- card_video -->
-                <div class="card_video">
-                    <a href="#">
-                        <div class="card_video__thumbnail">
-                        <div class="card_video__thumbnail__info">
-                            <ul>
-                            <li>16:25</li>
-                            <li><strong>5 videos</strong></li>
-                            </ul>
-                        </div>
-                        <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-5.jpg" alt="">
-                        </div>
-                        <div class="card_video__details">
-                        <!-- <div class="card_video__details__complete">Complete</div> -->
-                        <div class="card_video__details__day">Day 4</div>
-                        <div class="card_video__details__title">Cras finibus sit amet erat quis</div>
-                        <div class="card_video__details__summary">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis.
-                            Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.
-                        </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </div>
-                <!-- /card_video -->
-
-                <!-- card_video -->
-                <div class="card_video">
-                    <a href="#">
-                        <div class="card_video__thumbnail">
-                        <div class="card_video__thumbnail__info">
-                            <ul>
-                            <li>16:25</li>
-                            <li><strong>5 videos</strong></li>
-                            </ul>
-                        </div>
-                        <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-6.jpg" alt="">
-                        </div>
-                        <div class="card_video__details">
-                        <!-- <div class="card_video__details__complete">Complete</div> -->
-                        <div class="card_video__details__day">Day 5</div>
-                        <div class="card_video__details__title">Cras finibus sit amet erat quis</div>
-                        <div class="card_video__details__summary">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis.
-                            Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.
-                        </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </div>
-                <!-- /card_video -->
-
-                <!-- card_video -->
-                <div class="card_video">
-                    <a href="#">
-                        <div class="card_video__thumbnail">
-                        <div class="card_video__thumbnail__info">
-                            <ul>
-                            <li>16:25</li>
-                            <li><strong>5 videos</strong></li>
-                            </ul>
-                        </div>
-                        <img src="<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-7.jpg" alt="">
-                        </div>
-                        <div class="card_video__details">
-                        <!-- <div class="card_video__details__complete">Complete</div> -->
-                        <div class="card_video__details__day">Day 6</div>
-                        <div class="card_video__details__title">Cras finibus sit amet erat quis</div>
-                        <div class="card_video__details__summary">
-                            Morbi varius iaculis facilisis. Cras finibus sit amet erat quis placerat.
-                            Sed nec purus posuere, pharetra dui eget, rhoncus turpis.
-                            Etiam morbi varius iaculis facilisis. Cras finibus sit amet erat quis.
-                        </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </div>
-                <!-- /card_video -->
             </div>
         </div>
-    </div>
     </main>
     <!-- /main -->
 </div>

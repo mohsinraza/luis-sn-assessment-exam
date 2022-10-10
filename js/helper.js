@@ -56,18 +56,6 @@ function differenceSeconds(dateStart, dateEnd) {
         // return new Date(duration * 1000).toISOString().substr(14, 5);
  }
 
- var toHHMMSS = (secs) => {
-    var sec_num = parseInt(secs, 10)
-    var hours   = Math.floor(sec_num / 3600)
-    var minutes = Math.floor(sec_num / 60) % 60
-    var seconds = sec_num % 60
-
-    return [hours,minutes,seconds]
-        .map(v => v < 10 ? "0" + v : v)
-        .filter((v,i) => v !== "00" || i > 0)
-        .join(":")
-}
-
 function loadVideo(idElement, videoUrl) {
     jQuery(idElement).show();
 
@@ -139,7 +127,10 @@ function gtag_report_conversion(url) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+
+    // expire 0 - session cookie
+    if (exdays>0) document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        else document.cookie = cname + "=" + cvalue + ";path=/";
   }
 
   function getCookie(cname) {
@@ -179,3 +170,28 @@ function gtag_report_conversion(url) {
 
         }
     }
+
+    var toHHMMSS = (secs) => {
+        var sec_num = parseInt(secs, 10)
+        var hours   = Math.floor(sec_num / 3600)
+        var minutes = Math.floor(sec_num / 60) % 60
+        var seconds = sec_num % 60
+    
+        return [hours,minutes,seconds]
+            .map(v => v < 10 ? "0" + v : v)
+            .filter((v,i) => v !== "00" || i > 0)
+            .join(":")
+    }
+
+    var toHHMM = (secs) => {
+        var sec_num = parseInt(secs, 10)
+        var hours   = Math.floor(sec_num / 3600)
+        var minutes = Math.floor(sec_num / 60) % 60
+    
+        //only return hours and minutes
+        return [hours,minutes] 
+            .map(v => v < 10 ? "0" + v : v)
+            .filter((v,i) => v !== "00" || i > 0)
+            .join(":")
+    }
+    
