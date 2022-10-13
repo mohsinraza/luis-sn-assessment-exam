@@ -48,6 +48,7 @@ var AppFreeTrialQuestions = new Vue({
                     thisParent.modules = response.data;
                     console.log("Axios response");
                     console.log(thisParent.modules);
+                    console.log(thisParent.modules.length);
                     if(thisParent.modules.length > 0){
                         thisParent.modules.forEach((item,index) => {
                                 console.log("index:"+index)
@@ -68,9 +69,9 @@ var AppFreeTrialQuestions = new Vue({
                                     thisParent.startLessonBtnModuleId = item.module_id;
                                     console.log("startLessonBtnTxt:"+thisParent.startLessonBtnTxt)
 
-                                }else if(thisParent.startLessonBtnTxt == '' && item.module_watched_duration === item.module_duration){
-                                        thisParent.startLessonBtnTxt = "RESTART "+ item.module_day;
-                                        thisParent.startLessonBtnModuleId = item.module_id;
+                                }else if(thisParent.startLessonBtnTxt == '' && item.module_watched_duration === item.module_duration && index == thisParent.modules.length-1){
+                                        thisParent.startLessonBtnTxt = "RESTART "+ thisParent.modules[0].module_day;
+                                        thisParent.startLessonBtnModuleId = thisParent.modules[0].module_id;
                                         console.log("startLessonBtnTxt:"+thisParent.startLessonBtnTxt)
                                         
                                 }else{
