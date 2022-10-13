@@ -1,7 +1,7 @@
 <?php
 
  /*
-    Todo: 
+    Todo:
       1. create Database tables
       2. Fetch module dynamically
       3. write restend point to save video performance data in database
@@ -62,6 +62,12 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
               break;
           case 'get_all_videos':
               return $this->get_all_videos($params);
+              break;
+          case 'cancel_premium_with_reason':
+              return $this->cancel_premium_with_reason($params);
+              break;
+          case 'cancel_nclex_with_reason':
+              return $this->cancel_nclex_with_reason($params);
               break;
           default:
               return array('status' => false, 'msg' => 'Unknown action.', 'error_code'=> 'no-action');
@@ -208,5 +214,30 @@ class SN_REST_DEV_2 extends WP_REST_Controller {
       return $sql_result;
     }
 
+    /* Cancel current user active monthly membership inside BrainTree */
+    private function cancel_premium_with_reason($params) {
+        global $sn_current_user;
+
+        if (!array_key_exists("reason", $params)) {
+            return array('status' => false, 'msg' => 'No Reason Field.', 'error_code'=> 'no-reason-id');
+        }
+
+        return array(
+            'status' => true
+        );
+    }
+
+    /* Cancel current user active NCLEX membership inside BrainTree */
+    private function cancel_nclex_with_reason($params) {
+        global $sn_current_user;
+
+        if (!array_key_exists("reason", $params)) {
+            return array('status' => false, 'msg' => 'No Reason Field.', 'error_code'=> 'no-reason-id');
+        }
+
+        return array(
+            'status' => true
+        );
+    }
 
 } // Class

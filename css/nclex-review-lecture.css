@@ -1,3 +1,36 @@
+/* @media screen and (min-width: 576px){
+    .container{
+        max-width: 640px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        max-width: 820px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .container{
+        max-width: 1060px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .container{
+        max-width: 1160px;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .container{
+        max-width: 1280px;
+    }
+} */
+
+
+
+
 /* Hero Section Start * /
 .hero_dashboard__gradient_bg{
     padding-left: 120px;

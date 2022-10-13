@@ -5,7 +5,7 @@
 <div id="nclex-lecture" >
 
 <!-- hero_dashboard -->
-<div class="hero_dashboard hero_dashboard--lecture_series"
+<div class="hero_dashboard hero_dashboard--lecture_series hero_dashboard--lecture_series--v2"
                style="background-image: url(<?php echo SN_ASSETS_URL ?>/images/dashboard/_placeholder-lecture-series-header.jpg)">
     <div class="hero_dashboard__gradient_bg">
         <?php get_template_part('template-parts/header/menu','links'); ?>
