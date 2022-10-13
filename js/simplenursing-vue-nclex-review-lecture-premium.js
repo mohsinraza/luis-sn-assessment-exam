@@ -6,7 +6,9 @@ var AppFreeTrialQuestions = new Vue({
       fetching_data: false,
       errorMessage:'',
       successMessage:'',
-      modules:[]
+      modules:[],
+      startLessonBtnTxt: '',
+      startLessonBtnModuleId: 0,
   },
   computed: {
 
@@ -46,6 +48,37 @@ var AppFreeTrialQuestions = new Vue({
                     thisParent.modules = response.data;
                     console.log("Axios response");
                     console.log(thisParent.modules);
+                    if(thisParent.modules.length > 0){
+                        thisParent.modules.forEach((item,index) => {
+                                console.log("index:"+index)
+                                console.log("watch duration : module duration = " + item.module_watched_duration +' : '+ item.module_duration)
+
+                                // if(index == 0 && (item.module_watched_duration == null || item.module_watched_duration == 0)){
+                                //     thisParent.startLessonBtnTxt = "START DAY 1";
+                                //     thisParent.startLessonBtnModuleId = item.module_id;
+
+                                // }else 
+                                if(thisParent.startLessonBtnTxt == '' && (item.module_watched_duration == null || item.module_watched_duration == 0)){
+                                    thisParent.startLessonBtnTxt = "START " + item.module_day;
+                                    thisParent.startLessonBtnModuleId = item.module_id;
+                                    console.log("startLessonBtnTxt:"+thisParent.startLessonBtnTxt)
+
+                                }else if(thisParent.startLessonBtnTxt == '' && item.module_watched_duration != null && parseInt(item.module_watched_duration) < parseInt(item.module_duration)){
+                                    thisParent.startLessonBtnTxt = "CONTINUE " + item.module_day;
+                                    thisParent.startLessonBtnModuleId = item.module_id;
+                                    console.log("startLessonBtnTxt:"+thisParent.startLessonBtnTxt)
+
+                                }else if(thisParent.startLessonBtnTxt == '' && item.module_watched_duration === item.module_duration){
+                                        thisParent.startLessonBtnTxt = "RESTART "+ item.module_day;
+                                        thisParent.startLessonBtnModuleId = item.module_id;
+                                        console.log("startLessonBtnTxt:"+thisParent.startLessonBtnTxt)
+                                        
+                                }else{
+                                    console.log('Start Lesson Button: condition was not matched');
+                                }
+                        });
+                        
+                    }
                 })
                 .catch(error => {
                     console.log('getAllModules ERROR:', error);
