@@ -126,12 +126,29 @@ global $sn_current_user;
     <!-- Cancel Premium Membership Modal -->
     <?php get_template_part('template-parts/modal/modal-cancel-premium-membership'); ?>
 
+    <!-- Cancel Membership Success Modal -->
+    <?php get_template_part('template-parts/modal/modal-cancel-membership-success'); ?>
+
 
   </main>
 <!-- /main -->
 
 <script type="text/javascript">
     jQuery( document ).ready(function($) {
+      $("#cancelNclexBtn").click(function(e){
+        e.preventDefault();
+        $('input[name="nclexCancel"]').prop('checked', false).change();
+        $("#modalCancelNclexMembership").modal('hide');
+        // $("#cancelNclexBtn").attr("disabled", true);
+      });
+
+      $("#cancelPremiumBtn").click(function(e){
+        e.preventDefault();
+        $('input[name="premiumCancel"]').prop('checked', false).change();
+        $("#modalCancelPremiumMembership").modal('hide');
+        // $("#cancelPremiumBtn").attr("disabled", true);
+      });
+
       $('#upgrade-membership').click(function(e) {
           e.preventDefault();
           $('#upgrade-section').show();

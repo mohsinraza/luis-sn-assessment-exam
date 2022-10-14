@@ -10,7 +10,7 @@
     </div>
       
     
-    <div class="modal-body col-12 col-lg-10 m-auto py-5">
+    <div class="modal-body col-12 col-lg-10 m-auto pt-5">
       <div class="">
           <!-- Heading -->
               <h2 class="h2-small text-md-center text-left" tabindex="0">
@@ -24,19 +24,19 @@
           <div id="reasonCheckboxes" class="form_checkbox_special row justify-content-center text-left">
             <div class="col-md-6 col-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" value="option1">
+                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option1">
                 <label class="form-check-label">I passed my NCLEX.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" value="option2">
+                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option2">
                 <label class="form-check-label">I can't afford my membership.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" value="option3">
+                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option3">
                 <label class="form-check-label">SimpleNursing did not meet my expectations.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" value="option4">
+                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option4">
                 <label class="form-check-label">I chose a different NCLEX prep provider.</label>
               </div>
             </div>
@@ -45,11 +45,12 @@
 
 
           <!-- Buttons -->
-          <div class="form_bottom_buttons">
+          <div class="modal-footer form_bottom_buttons justify-content-center pt-4">
             <button role="button" class="btn btn-lg btn-outlined" href="#">
               Do not cancel my membership
             </button>
-            <button id="cancelBtn" role="button" class="btn btn-lg btn-black" href="#" onclick="location.href='dashboard_cancel_phase1_2.html'" disabled="disabled">
+            <!-- <button id="cancelBtn" role="button" class="btn btn-lg btn-black" href="#" onclick="location.href='dashboard_cancel_phase1_2.html'" disabled="disabled"> -->
+            <button id="cancelNclexBtn" role="button" class="btn btn-lg btn-black" href="#modalCancelMembershipSuccess" data-toggle="modal" disabled="disabled">
               Cancel my membership
             </button>
           </div>

@@ -12,11 +12,28 @@ var App = new Vue({
       ccMonth: '',
       ccYear: '',
       ccCvv:'',
+      cancelReason:'',
+      cancelMembershipType:'',
   },
   mounted: function () {
 
   },
   methods: {
+    onChange(event,membershipType) {
+        var optionText = event.target.value;
+        console.log(optionText);
+        console.log(membershipType);
+        this.cancelReason = optionText;
+        this.cancelMembershipType = membershipType;
+
+        if(membershipType==='nclex'){
+            jQuery("#cancelNclexBtn").removeAttr('disabled');
+        }else if(membershipType==='premium'){
+            jQuery("#cancelPremiumBtn").removeAttr('disabled');
+        }else{
+            console.log('membershipType not defined');
+        }
+    },
 
     cancelUserPremiumWithReason(reason) {
 
