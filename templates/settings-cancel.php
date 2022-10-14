@@ -117,8 +117,14 @@ global $sn_current_user;
       </div>
     </div>
 
-    <a href="#" class="text-left btn">CANCEL PREMIUM MEMBERSHIP!</a>
-    <a href="#" class="text-left btn">CANCEL NCLEX MEMBERSHIP!</a>
+    <a href="#modalCancelPremiumMembership" data-toggle="modal" class="text-left btn">CANCEL PREMIUM MEMBERSHIP!</a>
+    <a href="#modalCancelNclexMembership" data-toggle="modal" class="text-left btn">CANCEL NCLEX MEMBERSHIP!</a>
+
+    <!-- Cancel NCLEX Membership Modal -->
+    <?php get_template_part('template-parts/modal/modal-cancel-nclex-membership'); ?>
+
+    <!-- Cancel Premium Membership Modal -->
+    <?php get_template_part('template-parts/modal/modal-cancel-premium-membership'); ?>
 
 
   </main>

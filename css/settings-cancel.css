@@ -1,0 +1,13 @@
+/* radio button */
+#reasonCheckboxes{
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+
+#reasonCheckboxes .form-check{
+    padding: 15px 0;
+}
+#reasonCheckboxes .form-check label{
+    margin-top: 2px;
+}
+/* radio button */
