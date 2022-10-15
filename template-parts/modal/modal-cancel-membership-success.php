@@ -1,12 +1,12 @@
    <!-- Modal -->
-<div class="modal fade" id="modalCancelMembershipSuccess" tabindex="-1" aria-labelledby="modalCancelMembershipSuccess" aria-hidden="true">
+<div class="modal fade" id="modalCancelMembershipSuccess" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalCancelMembershipSuccess" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered text-center modal-xl">
     <div class="modal-content">
       <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLabel">Cancel Membership</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
-      </button>
+      </button> -->
     </div>
       
     
@@ -41,7 +41,7 @@
 
           <!-- Buttons -->
           <div class="modal-footer form_bottom_buttons justify-content-center pt-4">
-            <button role="button" class="btn btn-lg btn-outlined" href="#">
+            <button role="button" class="btn btn-lg btn-outlined" href="#" onclick="location.reload()">
               Go to my dashboard
             </button>
           </div>

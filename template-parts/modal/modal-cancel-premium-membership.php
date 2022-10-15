@@ -58,7 +58,8 @@
               Do not cancel my membership
             </button>
             <!-- <button id="cancelBtn" role="button" class="btn btn-lg btn-black" href="#" onclick="location.href='dashboard_cancel_phase1_2.html'" disabled="disabled"> -->
-            <button id="cancelPremiumBtn" role="button" class="btn btn-lg btn-black" href="#modalCancelMembershipSuccess" data-toggle="modal" disabled="disabled">
+            <!-- <button id="cancelPremiumBtn" role="button" class="btn btn-lg btn-black" href="#modalCancelMembershipSuccess" data-toggle="modal" disabled="disabled"> -->
+            <button id="cancelPremiumBtn" role="button" class="btn btn-lg btn-black" @click="cancelUserNclexWithReason('premium')" disabled="disabled">
               Cancel my membership
             </button>
           </div>

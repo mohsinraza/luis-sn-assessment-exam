@@ -40,7 +40,7 @@ var App = new Vue({
         let headers = {headers: {'X-WP-Nonce':wpApiSettings.nonce}};
         let data = {
             "action": "cancel_premium_with_reason",
-            "reason": reason
+            "reason": this.cancelReason
         };
 
         return new Promise(function(resolve, reject) {
@@ -49,10 +49,11 @@ var App = new Vue({
                     console.log(response.data);
                     if (response.data.status) {
                         jQuery("#cancelMembershipBraintreeModal").modal('hide');
+                        jQuery("#modalCancelMembershipSuccess").modal('show');
                         showNotificationSuccess('Your membership was canceled successfully. Please wait while we update your subscription.');
-                        setTimeout(function(){
-                            location.reload();
-                        }, 3000);
+                        // setTimeout(function(){
+                        //     location.reload();
+                        // }, 5000);
                     } else {
                         showNotificationError('There was an error canceling your subscription, please contact us.');
                     }
@@ -67,8 +68,9 @@ var App = new Vue({
         let headers = {headers: {'X-WP-Nonce':wpApiSettings.nonce}};
         let data = {
             "action": "cancel_nclex_with_reason",
-            "reason": reason
+            "reason": this.cancelReason
         };
+        console.log(this.cancelReason);
 
         return new Promise(function(resolve, reject) {
             axios.post('/wp-json/simplenursing/v1/action_dev2', data, headers)
@@ -76,10 +78,11 @@ var App = new Vue({
                     console.log(response.data);
                     if (response.data.status) {
                         jQuery("#cancelMembershipBraintreeModal").modal('hide');
+                        jQuery("#modalCancelMembershipSuccess").modal('show');
                         showNotificationSuccess('Your membership was canceled successfully. Please wait while we update your subscription.');
-                        setTimeout(function(){
-                            location.reload();
-                        }, 3000);
+                        // setTimeout(function(){
+                        //     location.reload();
+                        // }, 5000);
                     } else {
                         showNotificationError('There was an error canceling your subscription, please contact us.');
                     }
