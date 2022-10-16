@@ -22,22 +22,22 @@
 
           <!-- Reasons -->
           <div id="reasonCheckboxes" class="form_checkbox_special row justify-content-center text-left">
-            <div class="col-md-6 col-12">
+            <div class="col-md-8 col-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option1">
-                <label class="form-check-label">I passed my NCLEX.</label>
+                <input class="form-check-input" type="radio" id="nclexCancel1" name="nclexCancel" @change="onChange($event,'nclex')" value="option1">
+                <label class="form-check-label" for="nclexCancel1" for="">I passed my NCLEX.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option2">
-                <label class="form-check-label">I can't afford my membership.</label>
+                <input class="form-check-input" type="radio" id="nclexCancel2" name="nclexCancel" @change="onChange($event,'nclex')" value="option2">
+                <label class="form-check-label" for="nclexCancel2">I can't afford my membership.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option3">
-                <label class="form-check-label">SimpleNursing did not meet my expectations.</label>
+                <input class="form-check-input" type="radio" id="nclexCancel3" name="nclexCancel" @change="onChange($event,'nclex')" value="option3">
+                <label class="form-check-label" for="nclexCancel3">SimpleNursing did not meet my expectations.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="nclexCancel" @change="onChange($event,'nclex')" value="option4">
-                <label class="form-check-label">I chose a different NCLEX prep provider.</label>
+                <input class="form-check-input" type="radio" id="nclexCancel4" name="nclexCancel" @change="onChange($event,'nclex')" value="option4">
+                <label class="form-check-label" for="nclexCancel4">I chose a different NCLEX prep provider.</label>
               </div>
             </div>
           </div>

@@ -20,32 +20,33 @@
               </h2>
           <!-- /Heading -->
 
+
           <!-- Reasons -->
           <div id="reasonCheckboxes" class="form_checkbox_special row justify-content-center text-left">
-            <div class="col-md-6 col-12">
+            <div class="col-md-8 col-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="premiumCancel" @change="onChange($event,'premium')" value="option1">
-                <label class="form-check-label">I graduated from nursing school.</label>
+                <input class="form-check-input" type="radio" id="premiumCancel1" name="premiumCancel" @change="onChange($event,'premium')" value="option1">
+                <label class="form-check-label" for="premiumCancel1">I graduated from nursing school.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="premiumCancel" @change="onChange($event,'premium')" value="option2">
-                <label class="form-check-label">I'm no longer in nursing school.</label>
+                <input class="form-check-input" type="radio" id="premiumCancel2" name="premiumCancel" @change="onChange($event,'premium')" value="option2">
+                <label class="form-check-label" for="premiumCancel2">I'm no longer in nursing school.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="premiumCancel" @change="onChange($event,'premium')" value="option3">
-                <label class="form-check-label">I'm still in nursing school, but I no longer need SimpleNursing.</label>
+                <input class="form-check-input" type="radio" id="premiumCancel3" name="premiumCancel" @change="onChange($event,'premium')" value="option3">
+                <label class="form-check-label" for="premiumCancel3">I'm still in nursing school, but I no longer need SimpleNursing.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="premiumCancel" @change="onChange($event,'premium')" value="option4">
-                <label class="form-check-label">SimpleNursing did not meet my expectations.</label>
+                <input class="form-check-input" type="radio" id="premiumCancel4" name="premiumCancel" @change="onChange($event,'premium')" value="option4">
+                <label class="form-check-label" for="premiumCancel4">SimpleNursing did not meet my expectations.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="premiumCancel" @change="onChange($event,'premium')" value="option4">
-                <label class="form-check-label">I can't afford my SimpleNursing membership.</label>
+                <input class="form-check-input" type="radio" id="premiumCancel5" name="premiumCancel" @change="onChange($event,'premium')" value="option4">
+                <label class="form-check-label" for="premiumCancel5">I can't afford my SimpleNursing membership.</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="premiumCancel" @change="onChange($event,'premium')" value="option4">
-                <label class="form-check-label">I chose a different nursing school study resource.</label>
+                <input class="form-check-input" type="radio" id="premiumCancel6" name="premiumCancel" @change="onChange($event,'premium')" value="option4">
+                <label class="form-check-label" for="premiumCancel6">I chose a different nursing school study resource.</label>
               </div>
             </div>
           </div>

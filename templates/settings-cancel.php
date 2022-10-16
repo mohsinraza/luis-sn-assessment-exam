@@ -135,19 +135,28 @@ global $sn_current_user;
 
 <script type="text/javascript">
     jQuery( document ).ready(function($) {
-      $("#cancelNclexBtn").click(function(e){
+
+      //reset radio buttons when modal is hidden
+      $('.modal').on('hidden.bs.modal', function () {
+        // window.alert('hidden event fired!');
+        $('input[type="radio"]').prop('checked', false).change();
+        $("#cancelNclexBtn,#cancelPremiumBtn").attr("disabled", true);
+        
+      });
+      $("#cancelNclexBtn,#cancelPremiumBtn").click(function(e){
         e.preventDefault();
-        $('input[name="nclexCancel"]').prop('checked', false).change();
-        $("#modalCancelNclexMembership").modal('hide');
+        $('input[type="radio"]').prop('checked', false).change();
+        $("#modalCancelNclexMembership,#modalCancelPremiumMembership").modal('hide');
+        // $("#cancelNclexBtn,#cancelPremiumBtn").attr("disabled", true);
         // $("#cancelNclexBtn").attr("disabled", true);
       });
 
-      $("#cancelPremiumBtn").click(function(e){
-        e.preventDefault();
-        $('input[name="premiumCancel"]').prop('checked', false).change();
-        $("#modalCancelPremiumMembership").modal('hide');
-        // $("#cancelPremiumBtn").attr("disabled", true);
-      });
+      // $("#cancelPremiumBtn").click(function(e){
+      //   e.preventDefault();
+      //   $('input[name="premiumCancel"]').prop('checked', false).change();
+      //   $("#modalCancelPremiumMembership").modal('hide');
+      //   // $("#cancelPremiumBtn").attr("disabled", true);
+      // });
 
       $('#upgrade-membership').click(function(e) {
           e.preventDefault();

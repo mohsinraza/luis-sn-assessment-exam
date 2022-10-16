@@ -21,9 +21,11 @@ var App = new Vue({
   methods: {
     onChange(event,membershipType) {
         var optionText = event.target.value;
+        var labelText = jQuery("input[type='radio']:checked").parent().text();
         console.log(optionText);
+        console.log(labelText);
         console.log(membershipType);
-        this.cancelReason = optionText;
+        this.cancelReason = labelText;
         this.cancelMembershipType = membershipType;
 
         if(membershipType==='nclex'){

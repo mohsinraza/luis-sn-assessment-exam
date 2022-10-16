@@ -2,6 +2,8 @@
 #reasonCheckboxes{
     font-size: 20px;
     margin-bottom: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #reasonCheckboxes .form-check{
@@ -9,5 +11,11 @@
 }
 #reasonCheckboxes .form-check label{
     margin-top: 2px;
+}
+
+@media only screen and (max-width:1199px) and (min-width:576px){
+    .modal-dialog{
+        max-width: 95% !important;
+    }
 }
 /* radio button */
