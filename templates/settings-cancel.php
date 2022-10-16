@@ -138,11 +138,12 @@ global $sn_current_user;
 
       //reset radio buttons when modal is hidden
       $('.modal').on('hidden.bs.modal', function () {
-        // window.alert('hidden event fired!');
         $('input[type="radio"]').prop('checked', false).change();
         $("#cancelNclexBtn,#cancelPremiumBtn").attr("disabled", true);
         
       });
+
+      //reset modal on cancel button click
       $("#cancelNclexBtn,#cancelPremiumBtn").click(function(e){
         e.preventDefault();
         $('input[type="radio"]').prop('checked', false).change();
@@ -150,13 +151,6 @@ global $sn_current_user;
         // $("#cancelNclexBtn,#cancelPremiumBtn").attr("disabled", true);
         // $("#cancelNclexBtn").attr("disabled", true);
       });
-
-      // $("#cancelPremiumBtn").click(function(e){
-      //   e.preventDefault();
-      //   $('input[name="premiumCancel"]').prop('checked', false).change();
-      //   $("#modalCancelPremiumMembership").modal('hide');
-      //   // $("#cancelPremiumBtn").attr("disabled", true);
-      // });
 
       $('#upgrade-membership').click(function(e) {
           e.preventDefault();
