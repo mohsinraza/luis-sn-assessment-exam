@@ -34,7 +34,8 @@ var AppFreeTrialQuestions = new Vue({
       attendingNursingSchool:'',
       whenGraduateMonth:'',
       whenGraduateYear:'',
-      firstHear:'',
+      firstHearAbout:'',
+      license:'',
       haveInstructors:'',
       allowClosing: false,
       detailsEmpty () {
@@ -44,7 +45,8 @@ var AppFreeTrialQuestions = new Vue({
               this.becomingAmbassadorValue == "" ||
               this.whenGraduateMonth.trim() == "" ||
               this.whenGraduateYear.trim() == "" ||
-              this.firstHear.trim() == "" ||
+              this.firstHearAbout.trim() == "" ||
+              this.license.trim() == "" ||
               this.haveInstructors.trim() == "" ||
               this.attendingNursingSchool.trim() == ""
           );
@@ -58,6 +60,12 @@ var AppFreeTrialQuestions = new Vue({
         },
        whenGraduate() {
              return this.whenGraduateYear + " " + this.whenGraduateMonth;
+        },
+       firstHear() {
+             return this.firstHearAbout;
+        },
+       whichLicense() {
+             return this.license;
         },
     }, //computed
   mounted: function () {
@@ -77,6 +85,7 @@ var AppFreeTrialQuestions = new Vue({
           jQuery('#'+item.id).addClass('box-options__item--selected');
       },
       nextStep: function() {
+        console.log("this.license: "+this.license);
         this.step++;
       },
       showNavigationTitle: function(n) {
@@ -101,6 +110,8 @@ var AppFreeTrialQuestions = new Vue({
                   "classes_currently_taking": this.classesCurrentlyTakingValue,
                   "becoming_ambassador": this.becomingAmbassadorValue,
                   "when_graduate": this.whenGraduate,
+                  "first_hear": this.firstHear,
+                  "license": this.whichLicense,
                   "have_instructors": this.haveInstructors,
                   "attending_nursing_school": this.attendingNursingSchool
               };
@@ -161,6 +172,8 @@ var AppFreeTrialQuestions = new Vue({
                   "classes_currently_taking": this.classesCurrentlyTakingValue,
                   "becoming_ambassador": this.becomingAmbassadorValue,
                   "when_graduate": this.whenGraduate,
+                  "first_hear": this.firstHear,
+                  "license": this.whichLicense,
                   "have_instructors": this.haveInstructors,
                   "attending_nursing_school": this.attendingNursingSchool
               };

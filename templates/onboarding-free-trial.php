@@ -122,13 +122,13 @@
                       <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                           <label class="btn btn-radio">
-                            <input type="radio" name="options" id="option1" value="RN"> RN
+                            <input type="radio" v-model="license" name="options" id="option1" value="RN"> RN
                           </label>
                           <label class="btn btn-radio">
-                            <input type="radio" name="options" id="option2" value="LPN/LVN"> LPN/LVN
+                            <input type="radio" v-model="license" name="options" id="option2" value="LPN/LVN"> LPN/LVN
                           </label>
                           <label class="btn btn-radio">
-                            <input type="radio" name="options" id="option3" value="NP"> NP
+                            <input type="radio" v-model="license" name="options" id="option3" value="NP"> NP
                           </label>
                         </div>
                       </div>
@@ -141,7 +141,7 @@
                     <div>
                       <h5>How did you first hear about SimpleNursing?</h5>
                       <div class="form-group">
-                        <select v-model="firstHear" class="custom-select first-hear-select" id="first-hear">
+                        <select v-model="firstHearAbout" class="custom-select first-hear-select" id="first-hear">
                           <option disabled value="">Select only one</option>
                           <option value="tikTok">TikTok</option>
                           <option value="reddit">Reddit</option>
@@ -162,7 +162,7 @@
                 <!-- /Form -->
 
                 <div class="box-footer">
-                  <button :disabled="whenGraduateMonth=='' || whenGraduateYear=='' || firstHear==''" id="submit" type="submit"
+                  <button :disabled="whenGraduateMonth=='' || whenGraduateYear=='' || license=='' || firstHearAbout==''" id="submit" type="submit"
                     @click="nextStep()" href="#" class="btn btn-arrow">
                     Set up and continue
                     <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
