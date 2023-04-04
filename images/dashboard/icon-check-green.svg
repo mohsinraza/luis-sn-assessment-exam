@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-check-green copy</title>
+    <g id="Design-v2-—-Phase-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2-Cancelling-Phase-1---Cancel-Part-2" transform="translate(-463.000000, -208.000000)">
+            <g id="Group-2" transform="translate(463.000000, 200.000000)">
+                <g id="icon-check-green-copy" transform="translate(0.000000, 8.000000)">
+                    <circle id="Oval" fill="#1ED100" cx="12" cy="12" r="12"></circle>
+                    <g id="check" transform="translate(4.800007, 7.230904)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M4.89087503,10.5273423 C5.17201449,10.8085367 5.62789109,10.8085367 5.90908549,10.5273698 L14.1890767,2.24735106 C14.4702437,1.96615666 14.4702437,1.51028006 14.1890767,1.22911313 L13.1708663,0.210875199 C12.8896993,-0.070291733 12.4337953,-0.070291733 12.1526283,0.210875199 L5.39998026,6.96352328 L2.24732359,3.81086662 C1.96615666,3.52967222 1.51025259,3.52967222 1.22908566,3.81086662 L0.210875199,4.82910454 C-0.070291733,5.11029894 -0.070291733,5.56617554 0.210875199,5.84734247 L4.89087503,10.5273423 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
