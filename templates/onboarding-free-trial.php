@@ -47,13 +47,13 @@
             <div class="content-box" v-bind:class="{' main_step_last': step==2}">
               <div id="step1" class="step_n" v-if="step==1">
                 <ul class="steps-nav">
-                  <li class="steps-nav-item done">
-                    <img src="<?php echo SN_ASSETS_URL ?>/images/onboarding/step-icon.png" alt="logo-icon">
-                  </li>
-                  <li class="steps-nav-item done">
-                    <img src="<?php echo SN_ASSETS_URL ?>/images/onboarding/step-icon.png" alt="logo-icon">
-                  </li>
                   <li class="steps-nav-item current">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/onboarding/step-icon.png" alt="logo-icon">
+                  </li>
+                  <li class="steps-nav-item">
+                    <img src="<?php echo SN_ASSETS_URL ?>/images/onboarding/step-icon.png" alt="logo-icon">
+                  </li>
+                  <li class="steps-nav-item">
                     <img src="<?php echo SN_ASSETS_URL ?>/images/onboarding/step-icon.png" alt="logo-icon">
                   </li>
                 </ul>
@@ -68,7 +68,7 @@
                       <h5>When do you graduate?</h5>
                       <div class="form-group flex-nowrap">
                         <select v-model="whenGraduateMonth" class="custom-select mr-2" id="month">
-                          <option disabled value="">Month</option>
+                          <option disabled selected value="">Month</option>
                           <option value="january">January</option>
                           <option value="february">February</option>
                           <option value="march">March</option>
@@ -83,7 +83,7 @@
                           <option value="december">December</option>
                         </select>
                         <select v-model="whenGraduateYear" class="custom-select" id="Year">
-                          <option disabled value="">Year</option>
+                          <option disabled selected value="">Year</option>
                           <option value="2004">2004</option>
                           <option value="2005">2005</option>
                           <option value="2006">2006</option>
@@ -162,8 +162,8 @@
                 <!-- /Form -->
 
                 <div class="box-footer">
-                  <button :disabled="whenGraduateMonth=='' || whenGraduateYear=='' || license=='' || firstHearAbout==''" id="submit" type="submit"
-                    @click="nextStep()" href="#" class="btn btn-arrow">
+                  <button :disabled="whenGraduateMonth=='' || whenGraduateYear=='' || license=='' || firstHearAbout==''"
+                    id="submit" type="submit" @click="nextStep()" href="#" class="btn btn-arrow">
                     Set up and continue
                     <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -208,7 +208,6 @@
   </div>
   </main>
 </div>
-</div>
 <!-- /main -->
 
 
@@ -216,22 +215,34 @@
 <script>
   jQuery(document).ready(function ($) {
 
-    $('#month,#Year,#first-hear').change(function() {
+    $('#month,#Year,#first-hear').change(function () {
       var month_value = $("#month option:selected").val();
       var year_value = $("#Year option:selected").val();
       var first_hear_value = $("#first-hear option:selected").val();
 
-      if(month_value!=='' && year_value !==''){
+      if (month_value !== '' && year_value !== '') {
         jQuery('#form_group2').removeClass('d-none');
         // jQuery('#form_group3').removeClass('d-none');
-      }else{
+        jQuery('.steps-nav li:first-child').addClass('done');
+        jQuery('.steps-nav li:first-child').removeClass('current');
+        jQuery('.steps-nav li:nth-child(2)').addClass('current');
+
+        if($("#first-hear option:selected").val()!==''){
+          jQuery('#form_group3').removeClass('d-none');
+          jQuery('.steps-nav li:nth-child(2)').removeClass('current');
+          jQuery('.steps-nav li:nth-child(2)').addClass('done');
+          jQuery('.steps-nav li:last-child').addClass('current');
+        }
+      } else {
         jQuery('#form_group2').addClass('d-none');
         jQuery('#form_group3').addClass('d-none');
+        jQuery('.steps-nav li:last-child').removeClass('current done');
+        jQuery('.steps-nav li:nth-child(2)').removeClass('current done');
       }
 
-      if(first_hear_value==='other'){
+      if (first_hear_value === 'other') {
         jQuery('#form_group3_other').removeClass('d-none');
-      }else{
+      } else {
         jQuery('#form_group3_other').addClass('d-none');
       }
 
@@ -243,7 +254,7 @@
     $("#form_group2 input[name='options']").click(function () {
       jQuery('#form_group3').removeClass('d-none');
       console.log($(this).val());
-   });
+    });
 
 
   })
