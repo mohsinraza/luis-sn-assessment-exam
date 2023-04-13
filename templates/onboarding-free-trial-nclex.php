@@ -133,7 +133,7 @@
                           <option value="other">Other</option>
                         </select>
                         <textarea name="other-textarea" class="form-control d-none"
-                          placeholder="Lorem ipsum dolor sit amet consectetur" id="form_group3_other"></textarea>
+                          placeholder="Please type another option here" id="form_group3_other"></textarea>
                       </div>
                     </div>
                   </div>
