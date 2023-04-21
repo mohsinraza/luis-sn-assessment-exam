@@ -16,9 +16,13 @@ if ($has_action) {
 }
 
 if ($submitted==true)  {
-    if ($action=="delete_sp") {
-        $return = sn_delete_sp();
+    if ($action=="search_member") {
+        $assessment_exams = sn_get_member_assessment_exam();
+        var_dump($assessment_exams);
+    }
 
+    if ($action=="delete_aex") {
+        $return = sn_delete_member_assessment_exam();
     }
 }
 
@@ -69,21 +73,73 @@ if ($return!==TRUE) {
 
             <form id="myForm" method="get">
               <label for="email">Member Email:</label>
-              <input type="email" id="email" name="email">
-              <input type="hidden" id="action" name="action" value="delete_sp">
-              <input type="submit" value="Delete Study Plan">
+              <input type="hidden" id="action" name="action" value="search_member">
+              <input type="email" id="email" name="email" value="<?=isset($_GET["email"])?$_GET["email"]:''?>" style="width:400px;">
+              <input type="submit" value="Search Member">
             </form>
             <?php if ($return===TRUE): ?>
                 <div class="alert alert-success" role="alert">
-                  Study Plan Removed
+                  Assessment Exams Removed
                 </div>
-            <?php else: ?>
+            <?php elseif($return===FALSE): ?>
                 <div class="alert alert-danger" role="alert">
                   <?= $error_message ?>
+                </div>
+            <?php //endif ?>
+
+            <?php elseif ($assessment_exams === "Assessment exams not found"): ?>
+                <div class="alert alert-success" role="alert">
+                  No exam data found with this email
+                </div>
+            <?php elseif (count($assessment_exams)!=0): ?>
+                <div class="alert alert-danger" role="alert">
+                  <?= 'Total '.count($assessment_exams) .' assessment exam(a) found.' ?>
                 </div>
             <?php endif ?>
         </div>
 
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <?php if ($assessment_exams !== "Assessment exams not found"): ?>
+                <h2 class="search-post-type">Assesment Exams</h2>
+                <div>
+                    <?php if (count($assessment_exams)!=0): ?>
+                        <?=$assessment_exams[0]->user_id?>
+                        <form id="myForm" method="get" onsubmit="return confirm('Do you really want to delete the assessment exams data of this member?');">
+                        <input type="hidden" id="action" name="action" value="delete_aex">
+                        <input type="hidden" id="action" name="user_id" value="<?=$assessment_exams[0]->user_id?>">
+                        <label for="delete_checkbox">Do you want to delete this member's all assesment exams data?</label>
+                        <input type="checkbox" name="delete_checkbox" id="delete_checkbox">
+                        <input type="submit" value="Delete" id="delete_button" disabled>
+                    <?php endif ?>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Exam Id</td>
+                            <td>Date</td>
+                            <td>Ability Estimate</td>
+                            <td>Passed</td>
+                            <td>Completed</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                    <?php foreach ($assessment_exams as $key => $exam): ?>
+                        <tr>
+                            <td><?=$exam->exam_id?></td>
+                            <td><?=$exam->date?></td>
+                            <td><?=$exam->ability_estimate?></td>
+                            <td><?=$exam->passed?></td>
+                            <td><?=$exam->completed?></td>
+                        </tr>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+            <?php endif ?>
+        </div>
     </div>
 
     <div class="row">
@@ -230,10 +286,23 @@ if ($return!==TRUE) {
     }
 </style>
 
-
+<script>
+    jQuery(document).ready(function ($) {
+        $('#delete_checkbox').click(function (event) {
+            if (this.checked) {
+                console.log('isChecked:'+this.checked);
+                $('#delete_button').removeAttr('disabled');
+            } else {
+                console.log('isChecked:'+this.checked);
+                $("#delete_button").prop("disabled", true);
+            }
+        });
+        // $("#delete_checkbox").prop("checked", true);
+    });
+</script>
 <?php
-// delete SP from a member
-function sn_delete_sp() {
+// search member's assessment exams data by email 
+function sn_get_member_assessment_exam() {
     if(isset($_GET["email"])){
       $email = $_GET["email"];
       //Get wordpress user id by email
@@ -241,28 +310,41 @@ function sn_delete_sp() {
       if($user){
         $user_id = $user->ID;
         global $wpdb;
-        //Get the ID from the table sn_study_plan where user_id is the WP User ID
-         $result = $wpdb->get_row("SELECT ID FROM sn_study_plan WHERE user_id = $user_id", ARRAY_A);
+        //Get all assessment exams list from the table sn_assessment_exam where user_id is the member user id
+         $result = $wpdb->get_results("SELECT * FROM sn_assessment_exam WHERE user_id = $user_id");
          if($result){
-           $sp_id = $result['ID'];
-           //Delete all records from table sn_study_plan_assignments where sp_id is the ID from the sn_study_plan
-           $result = $wpdb->delete('sn_study_plan_assignments', array('sp_id' => $sp_id), array('%d'));
-           if($result !== false){
-               //Delete all records from table sn_study_plan where ID
-               $result2 = $wpdb->delete('sn_study_plan', array('ID' => $sp_id), array('%d'));
-                if($result !== false){
-                    return true;
-                } else {
-                    return "Error removing records from sn_study_plan";
-                }
-           } else {
-             return "Error removing records sn_study_plan_assignments";
-           }
+           return $result;
        } else {
-           return "Study Plan not found";
+           return "Assessment exams not found";
        }
       } else {
         return "User not found";
       }
+    }
+}
+
+// delete SP from a member
+function sn_delete_member_assessment_exam() {
+    if(isset($_GET["user_id"])){
+            $user_id = $_GET["user_id"];
+            global $wpdb;
+            //Get all assessment exams list from the table sn_assessment_exam where user_id is the member user id
+            $result = $wpdb->get_results("SELECT exam_id FROM sn_assessment_exam WHERE user_id = $user_id");
+            foreach ($result as $key => $aex) {
+                //Delete all records from table sn_assessment_exam_answers where user_id is the $user_id from the sn_study_plan
+                $result1 = $wpdb->delete('sn_assessment_exam_answers', array('exam_id' => $aex->exame_id), array('%d'));
+            }
+            
+           if($result !== false){
+               //Delete all records from table sn_assessment_exam where user_id is equal to member_id
+               $result2 = $wpdb->delete('sn_assessment_exam', array('user_id' => $user_id), array('%d'));
+                if($result !== false){
+                    return true;
+                } else {
+                    return "Error removing records from sn_assessment_exam";
+                }
+           } else {
+             return "Error removing records sn_assessment_exam_answers";
+           }
     }
 }
